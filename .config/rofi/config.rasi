@@ -1,0 +1,10 @@
+configuration {
+	modi: "drun,window";
+	lines: 7;
+	show-icons: true;
+	drun-match-fields: "all";
+	drun-display-format: "{name}"; 
+	window-format: "{w}: {t}";
+	disable-history: false;
+}
+@theme "themes/dt-center"
