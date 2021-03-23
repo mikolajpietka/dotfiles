@@ -124,8 +124,6 @@ alias gpg-lock='gpg -c --cipher-algo AES256 --no-symkey-cache'
 eval $(thefuck --alias)
 alias autoapt='/home/mikolaj/.scripts/autoapt.sh'
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-
 ### Powerline-shell ###
 # function _update_ps1() {
 #     PS1=$(powerline-shell $?)
@@ -136,3 +134,4 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 ### Starship ###
 eval "$(starship init bash)"
+neofetch
