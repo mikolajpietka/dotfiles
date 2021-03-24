@@ -245,7 +245,9 @@ screens = [
                     disable_drag=True,
                     inactive="909090"
                 ),
-                widget.WindowName(),
+                widget.WindowTabs(
+		    font='Ubuntu'
+		),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
