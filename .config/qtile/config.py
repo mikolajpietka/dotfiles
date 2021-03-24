@@ -302,7 +302,9 @@ screens = [
                     ],
                     text_closed=" ⏻ ",
                     text_open=" ⏻ ",
-                    close_button_location="right"
+                    close_button_location="right",
+		    fontsize=16,
+		    padding=0
                 ),
                 widget.Sep(
                     linewidth = 0,
