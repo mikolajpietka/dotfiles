@@ -246,8 +246,8 @@ screens = [
                     inactive="909090"
                 ),
                 widget.WindowTabs(
-		    font='Ubuntu'
-		),
+		            font='Ubuntu'
+		        ),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
@@ -305,8 +305,8 @@ screens = [
                     text_closed=" ⏻ ",
                     text_open=" ⏻ ",
                     close_button_location="right",
-		    fontsize=16,
-		    padding=0
+		            fontsize=16,
+		            padding=0
                 ),
                 widget.Sep(
                     linewidth = 0,
