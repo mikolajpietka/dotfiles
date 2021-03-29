@@ -333,7 +333,7 @@ mouse = [
     ),
     Click(
         [mod], "Button2", 
-        lazy.window.bring_to_front()
+        lazy.window.toggle_floating(),
     )
 ]
 
