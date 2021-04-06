@@ -245,14 +245,18 @@ screens = [
                     disable_drag=True,
                     inactive="909090"
                 ),
-                widget.WindowTabs(
-		            font='Ubuntu'
+                widget.TaskList(
+                    highlight_method="border",
+                    border="219ebc"
 		        ),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper()
+                ),
+                widget.Systray(
+                    icon_size=20
                 ),
                 widget.CurrentLayoutIcon(
                     scale=0.5,
