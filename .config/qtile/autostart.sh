@@ -9,7 +9,7 @@ function run {
 }
 
 picom &
-feh --bg-scale $HOME/wallpapers/$(ls $HOME/wallpapers/ | shuf -n1) &
+feh --bg-scale $HOME/wallpapers/$(ls -I "README.md" $HOME/wallpapers/ | shuf -n1) &
 
 run nm-applet &
 numlockx on &
