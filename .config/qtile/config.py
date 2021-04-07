@@ -255,9 +255,6 @@ screens = [
                     },
                     name_transform=lambda name: name.upper()
                 ),
-                widget.Systray(
-                    icon_size=20
-                ),
                 widget.CurrentLayoutIcon(
                     scale=0.5,
                     padding=0
@@ -273,9 +270,8 @@ screens = [
                     padding=6,
                     size_percent=65
                 ),
-                widget.Volume( 
-                    device='pulse',
-                    fmt='VOL {}'
+                widget.Systray(
+                    icon_size=20
                 ),
                 widget.Battery(
                     charge_char='+',
