@@ -368,4 +368,4 @@ def startup_once():
     subprocess.call([autostart])
 
 # Weird line but... If it's here I will leave it
-wmname = "LG3D"
+wmname = "Qtile"
