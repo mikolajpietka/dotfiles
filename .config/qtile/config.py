@@ -21,18 +21,28 @@ keys = [
     # Special keys
     Key(
         [], "XF86AudioRaiseVolume", 
-        lazy.spawn("amixer -D pulse -q set Master 5%+"), 
+        lazy.spawn("amixer -q set Master 5%+ unmute"), 
         desc="Volume up"
     ),
     Key(
         [], "XF86AudioLowerVolume", 
-        lazy.spawn("amixer -D pulse -q set Master 5%-"), 
+        lazy.spawn("amixer -q set Master 5%- unmute"), 
         desc="Volume down"
     ),
     Key(
         [], "XF86AudioMute", 
-        lazy.spawn("amixer -D pulse -q set Master toggle"), 
+        lazy.spawn("amixer -q set Master toggle"), 
         desc="Mute"
+    ),
+    Key(
+        [], "XF86MonBrightnessUp",
+        lazy.spawn("xbacklight + 10"),
+        desc="Decrease brightness"
+    ),
+    Key(
+        [], "XF86MonBrightnessDown",
+        lazy.spawn("xbacklight - 10"),
+        desc="Increase brightness"
     ),
     # Rofi drun
     Key(
@@ -69,8 +79,8 @@ keys = [
     ),
     Key(
         [mod], "Tab", 
-        lazy.next_layout(), 
-        desc="Toggle between layouts"
+        lazy.screen.next_group(), 
+        desc="Jumo between groups"
     ),
     Key(
         [mod], "q", 
@@ -85,15 +95,6 @@ keys = [
     ),
 
     # Key chords
-    KeyChord(
-        [mod], "l", [
-            Key(
-                [], "s", 
-                lazy.spawn(".scripts/scripts.sh"), lazy.ungrab_chord()
-            )
-        ],
-        mode="Launch"
-    ),
     KeyChord(
         [mod], "w", [
             Key(
@@ -131,33 +132,8 @@ keys = [
                 lazy.layout.next(),
                 desc="Next window"
             ),
-            Key(
-                ["control"], "Tab",
-                lazy.layout.up(),
-                desc="test"
-            )
         ],
         mode="Window"
-    ),
-    KeyChord(
-        [mod], "Escape", [
-            Key(
-                [], "q",
-                lazy.spawn("shutdown now"),
-                desc="Shutdown"
-            ),
-            Key(
-                [], "r",
-                lazy.spawn("reboot"),
-                desc="Reboot"
-            ),
-            Key(
-                [], "l",
-                lazy.shutdown(),
-                desc="Logout"
-            )
-        ],
-        mode="Quit"
     ),
 ]
 
@@ -215,13 +191,16 @@ layout_theme = {
 
 layouts = [
     layout.Max(
-        **layout_theme
+        **layout_theme,
+        name=""
     ),
     layout.MonadTall(
-        **layout_theme
+        **layout_theme,
+        name=""
     ),
     layout.Floating(
-        **layout_theme
+        **layout_theme,
+        name=""
     )
 ]
 
@@ -239,42 +218,83 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    padding=2.5,
+                    padding=3,
                     highlight_method="line",
-                    this_current_screen_border="#ffffff",
+                    this_current_screen_border="#0183daa8",
                     disable_drag=True,
-                    inactive="909090"
+                    inactive="999999",
+                    highlight_color=['0183daa8'] 
                 ),
-                widget.WindowName(),
+                widget.WindowName(
+                    format="{name}"
+                ),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper()
                 ),
-                widget.CurrentLayoutIcon(
-                    scale=0.5,
-                    padding=0
+                widget.Notify(
+                    default_timeout=10,
+                    fmt=" {}"
+                ),
+                widget.CurrentLayout(
+                    font="FontAwesome",
+                    fontsize=14
                 ),
                 widget.Sep(
                     linewidth=2,
                     padding=6,
                     size_percent=65
                 ),
-                widget.Clock(format='%H:%M %A, %d.%m.%Y'),
+                widget.Clock(
+                    format='%H:%M %a, %d.%m',
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("gnome-calendar")},
+                ),
                 widget.Sep(
                     linewidth=2,
                     padding=6,
                     size_percent=65
                 ),
-                widget.Systray(
-                    icon_size=20
+                widget.TextBox(
+                    text="",
+                    fontsize=14,
+                    font="FontAwesome"
+                ),
+                widget.Wlan(
+                    interface="wlp9s0",
+                    format="{essid} {percent:2.0%}",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nm-connection-editor")},
+                ),
+                widget.TextBox(
+                    text="",
+                    fontsize=14,
+                    font="FontAwesome"
+                ),
+                widget.Volume(
+                    device=None,
+                    step=5,
+                ),
+                widget.TextBox(
+                    text="",
+                    fontsize=14,
+                    font="font-awesome"
+                ),
+                widget.Backlight(
+                    backlight_name="intel_backlight",
+                    update_interval=0.5,
+                    step=5,
+                ),
+                widget.TextBox(
+                    text="",
+                    fontsize=14,
+                    font="FontAwesome"
                 ),
                 widget.Battery(
                     charge_char='+',
                     discharge_char='',
                     full_char='+',
-                    format='BAT {char} {percent:1.0%}',
+                    format='{char}{percent:1.0%}',
                     show_short_text=False,
                     update_interval=1
                 ),
@@ -284,25 +304,47 @@ screens = [
                     size_percent=65
                 ),
                 widget.WidgetBox(
-                    font='Unicode_IEC_symbol',
                     widgets=[
+                        widget.DF(
+                            visible_on_warn=False,
+                            format=" {uf}{m}"
+                        ),
+                        widget.Wallpaper(
+                            directory="~/wallpapers/",
+                            fmt="",
+                            font="FontAwesome",
+                            fontsize=14,
+                            random_selection=True
+                        ),
+                        widget.Sep(
+                            linewidth=2,
+                            padding=6,
+                            size_percent=65
+                        ),
                         widget.TextBox(
-                            text="Shutdown",
+                            font='FontAwesome',
+                            fontsize=14,
+                            text="",
                             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("shutdown now")}
                         ),
                         widget.TextBox(
-                            text="Reboot",
+                            font='FontAwesome',
+                            fontsize=14,
+                            text="",
                             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("reboot")}
                         ),
                         widget.TextBox(
-                            text="Logout",
+                            font='FontAwesome',
+                            fontsize=14,
+                            text="",
                             mouse_callbacks = {'Button1': lambda: qtile.cmd_shutdown()}
                         ),
                     ],
-                    text_closed=" ⏻ ",
-                    text_open=" ⏻ ",
+                    font='FontAwesome',
+                    text_closed="  ",
+                    text_open="  ",
                     close_button_location="right",
-		            fontsize=16,
+		            fontsize=14,
 		            padding=0
                 ),
                 widget.Sep(
