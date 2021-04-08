@@ -245,10 +245,7 @@ screens = [
                     disable_drag=True,
                     inactive="909090"
                 ),
-                widget.TaskList(
-                    highlight_method="border",
-                    border="219ebc"
-		        ),
+                widget.WindowName(),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
