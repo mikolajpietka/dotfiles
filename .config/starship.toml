@@ -20,3 +20,6 @@ error_symbol = "[✗](bold red) "
 [package]
 disabled = true
 
+[git_status]
+style = "bold yellow"
+
