@@ -234,11 +234,11 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Image(
-                    filename="~/.config/qtile/icons/arcolinux.png",
-                    margin_y=4,
-                    margin_x=6
-                ),
+                # widget.Image(
+                #     filename="~/.config/qtile/icons/arcolinux.png",
+                #     margin_y=4,
+                #     margin_x=6
+                # ),
                 widget.GroupBox(
                     font="FontAwesome Bold",
                     fontsize=15,
