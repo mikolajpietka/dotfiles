@@ -154,11 +154,11 @@ keys = [
 
 # Name groups
 groups_names = [
-    ("WWW", {'layout': 'max'}),
-    ("SYS", {'layout': 'monadtall'}),
-    ("DEV", {'layout': 'max'}),
-    ("FLT", {'layout': 'floating'}),
-    ("BCK", {'layout': 'monadtall'})
+    ("WWW", {'label': "", 'layout': 'max'}),
+    ("SYS", {'label': "", 'layout': 'monadtall'}),
+    ("DEV", {'label': "", 'layout': 'max'}),
+    ("FIL", {'label': "", 'layout': 'monadtall'}),
+    ("BCK", {'label': "", 'layout': 'max'})
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in groups_names]
@@ -175,21 +175,6 @@ for i, (name, kwargs) in enumerate(groups_names, 1):
             lazy.window.togroup(name, switch_group=True) 
         ))
 
-# Number groups
-# groups = [Group(i) for i in "12345"]
-# for i in groups:
-#     keys.extend([
-#         Key(
-#             [mod], i.name, 
-#             lazy.group[i.name].toscreen(),
-#             desc="Switch to group {}".format(i.name)
-#         ),
-#         Key(
-#             [mod, "shift"], i.name, 
-#             lazy.window.togroup(i.name, switch_group=True),
-#             desc="Switch to & move focused window to group {}".format(i.name)
-#         ),
-#     ])
 
 ##### LAYOUTS #####
 
@@ -205,15 +190,12 @@ layout_theme = {
 layouts = [
     layout.Max(
         **layout_theme,
-        name=""
     ),
     layout.MonadTall(
         **layout_theme,
-        name=""
     ),
     layout.Floating(
         **layout_theme,
-        name=""
     )
 ]
 
@@ -231,12 +213,19 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
+                    font="FontAwesome Bold",
+                    fontsize=15,
                     padding=3,
                     highlight_method="line",
-                    this_current_screen_border="#0183daa8",
+                    this_current_screen_border="#FFFFFF",
                     disable_drag=True,
                     inactive="999999",
-                    highlight_color=['0183daa8'] 
+                    highlight_color=['#ffffff50'] 
+                ),
+                widget.Image(
+                    filename="~/.config/qtile/icons/separator.png",
+                    margin_y=6,
+                    margin_x=10
                 ),
                 widget.WindowName(
                     format="{name}"
@@ -249,59 +238,53 @@ screens = [
                 ),
                 widget.Notify(
                     default_timeout=10,
-                    fmt=" {}"
+                    fmt="{}"
                 ),
-                widget.CurrentLayout(
-                    font="FontAwesome",
-                    fontsize=14
-                ),
-                widget.Sep(
-                    linewidth=2,
-                    padding=6,
-                    size_percent=65
+                widget.Image(
+                    filename="~/.config/qtile/icons/icon-clock.png",
+                    margin_y=6,
+                    margin_x=3
                 ),
                 widget.Clock(
                     format='%H:%M %a, %d.%m',
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("gnome-calendar")},
                 ),
-                widget.Sep(
-                    linewidth=2,
-                    padding=6,
-                    size_percent=65
-                ),
-                widget.TextBox(
-                    text="",
-                    fontsize=14,
-                    font="FontAwesome"
+                widget.Image(
+                    filename="~/.config/qtile/icons/icon-wifi.png",
+                    margin_y=6,
+                    margin_x=3
                 ),
                 widget.Wlan(
                     interface="wlp9s0",
                     format="{essid} {percent:2.0%}",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nm-connection-editor")},
+                    foreground="#9EC1CF"
                 ),
-                widget.TextBox(
-                    text="",
-                    fontsize=14,
-                    font="FontAwesome"
+                widget.Image(
+                    filename="~/.config/qtile/icons/icon-sound.png",
+                    margin_y=6,
+                    margin_x=3
                 ),
                 widget.Volume(
                     device=None,
                     step=5,
+                    foreground="#ff6663"
                 ),
-                widget.TextBox(
-                    text="",
-                    fontsize=14,
-                    font="font-awesome"
+                widget.Image(
+                    filename="~/.config/qtile/icons/icon-brightness.png",
+                    margin_y=6,
+                    margin_x=3
                 ),
                 widget.Backlight(
                     backlight_name="intel_backlight",
                     update_interval=0.5,
                     step=5,
+                    foreground="#FEB144"
                 ),
-                widget.TextBox(
-                    text="",
-                    fontsize=14,
-                    font="FontAwesome"
+                widget.Image(
+                    filename="~/.config/qtile/icons/icon-battery.png",
+                    margin_y=6,
+                    margin_x=3
                 ),
                 widget.Battery(
                     charge_char='+',
@@ -309,47 +292,66 @@ screens = [
                     full_char='+',
                     format='{char}{percent:1.0%}',
                     show_short_text=False,
-                    update_interval=1
+                    update_interval=1,
+                    foreground="#9EE09E"
                 ),
-                widget.Sep(
-                    linewidth=2,
-                    padding=6,
-                    size_percent=65
+                widget.CurrentLayoutIcon(
+                    custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons/")],
+                    scale=0.5,
+                    margin=0,
+                    padding=0
                 ),
                 widget.WidgetBox(
                     widgets=[
+                        widget.Image(
+                            filename="~/.config/qtile/icons/separator.png",
+                            margin_y=6,
+                            margin_x=10
+                        ),
+                        widget.Image(
+                            filename="~/.config/qtile/icons/icon-folder.png",
+                            margin_y=6,
+                            margin_x=3
+                        ),
                         widget.DF(
                             visible_on_warn=False,
-                            format=" {uf}{m}"
+                            format="{uf}{m}",
+                            foreground="#FCD462"
+                        ),
+                        widget.Image(
+                            filename="~/.config/qtile/icons/icon-wallpaper.png",
+                            margin_y=6,
+                            margin_x=3
                         ),
                         widget.Wallpaper(
                             directory="~/wallpapers/",
-                            fmt="",
+                            fmt="",
                             font="FontAwesome",
                             fontsize=14,
-                            random_selection=True
+                            random_selection=True,
+                            foreground="#4CAF50"
                         ),
-                        widget.Sep(
-                            linewidth=2,
-                            padding=6,
-                            size_percent=65
+                        widget.Image(
+                            filename="~/.config/qtile/icons/separator.png",
+                            margin_y=6,
+                            margin_x=10
                         ),
-                        widget.TextBox(
-                            font='FontAwesome',
-                            fontsize=14,
-                            text="",
+                        widget.Image(
+                            filename="~/.config/qtile/icons/button-power.png",
+                            margin_y=6,
+                            margin_x=5,
                             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("shutdown now")}
                         ),
-                        widget.TextBox(
-                            font='FontAwesome',
-                            fontsize=14,
-                            text="",
+                        widget.Image(
+                            filename="~/.config/qtile/icons/button-reboot.png",
+                            margin_y=6,
+                            margin_x=5,
                             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("reboot")}
                         ),
-                        widget.TextBox(
-                            font='FontAwesome',
-                            fontsize=14,
-                            text="",
+                        widget.Image(
+                            filename="~/.config/qtile/icons/button-logout.png",
+                            margin_y=6,
+                            margin_x=5,
                             mouse_callbacks = {'Button1': lambda: qtile.cmd_shutdown()}
                         ),
                     ],
