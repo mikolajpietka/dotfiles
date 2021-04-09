@@ -13,7 +13,7 @@
 # Created by Mikolaj Pietka
 */
 configuration {
-	modi: "drun,window";
+	modi: "drun,file-browser,run,window,";
 	lines: 7;
 	show-icons: true;
 	drun-match-fields: "all";
