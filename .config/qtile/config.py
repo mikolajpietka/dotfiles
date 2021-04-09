@@ -59,6 +59,16 @@ keys = [
         lazy.spawn("xbacklight - 10"),
         desc="Increase brightness"
     ),
+    Key(
+        [], "Print",
+        lazy.spawn("gnome-screenshot"),
+        desc="Take screenshot"
+    ),
+    Key(
+        ["control"], "Print",
+        lazy.spawn("gnome-screenshot -i"),
+        desc="Screenshot settings"
+    ),
     # Rofi
     Key(
         [mod], "r", 
