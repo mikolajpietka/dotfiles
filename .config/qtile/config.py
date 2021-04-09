@@ -29,6 +29,7 @@ terminal = "alacritty"
 rofi = "rofi -show "
 autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
 filemanager = "nautilus"
+wallpaper_folder = "~/wallpapers/minimal"
 
 ##### KEY COMBINATIONS #####
 keys = [
@@ -191,7 +192,7 @@ for i, (name, kwargs) in enumerate(groups_names, 1):
 
 # Layouts
 layout_theme = {
-    "margin": 8, 
+    "margin": 10, 
     "border_focus": "#8ecae6", 
     "border_normal": "#023047", 
     "border_width": 2, 
@@ -352,7 +353,7 @@ screens = [
                             margin_x=3
                         ),
                         widget.Wallpaper(
-                            directory="~/wallpapers/",
+                            directory=wallpaper_folder,
                             fmt="",
                             font="FontAwesome",
                             fontsize=14,
