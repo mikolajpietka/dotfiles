@@ -16,13 +16,14 @@
 */
 
 * {
-    background-color: #040E20;
-    border-color: #07264E;
+    background-color: #040E20CC;
+    border-color: #07264ECC;
     font: "Ubuntu 15";
     text-color: #FFFFFF;
 
-    selected-background: #3F4D53;
-    prompt-background: #1F2E49;
+    selected-background: #3F4D53CC;
+    prompt-background: #1F2E49CC;
+    transparent: #00000000;
 }
 
 window {
@@ -36,29 +37,22 @@ mainbox {
     padding: 10;
 }
 
+message {
+    background-color: @transparent;
+}
+
 inputbar {
-    
     background-color: @prompt-background;
     border-radius: 3;
 }
 
-prompt {
-    background-color: @prompt-background;
+prompt, entry, case-indicator, element {
+    background-color: @transparent;
     padding: 3;
 }
 
-entry {
-    background-color: @prompt-background;
-    padding: 3;
-}
-
-case-indicator {
-    background-color: @prompt-background;
-    padding: 3;
-}
-
-element {
-    padding: 3;
+listview {
+    background-color: @transparent;
 }
 
 element selected {
@@ -68,4 +62,5 @@ element selected {
 
 textbox {
     padding: 10;
+    background-color: @transparent;
 }
