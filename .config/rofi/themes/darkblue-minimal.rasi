@@ -1,0 +1,71 @@
+/*
+#################################################################
+## ___  ____ _         _       _  ______ _      _   _          ##
+## |  \/  (_) |       | |     (_) | ___ (_)    | | | |         ##
+## | .  . |_| | _____ | | __ _ _  | |_/ /_  ___| |_| | ____ _  ##
+## | |\/| | | |/ / _ \| |/ _` | | |  __/| |/ _ \ __| |/ / _` | ##
+## | |  | | |   < (_) | | (_| | | | |   | |  __/ |_|   < (_| | ##
+## \_|  |_/_|_|\_\___/|_|\__,_| | \_|   |_|\___|\__|_|\_\__,_| ##
+##                           _/ |                              ##
+##                          |__/                               ##
+#################################################################
+
+* ROFI Color theme
+* NAME: DarkBlue Minimal
+* AUTHOR: Mikolaj Pietka
+*/
+
+* {
+    background-color: #040E20;
+    border-color: #07264E;
+    font: "Ubuntu 15";
+    text-color: #FFFFFF;
+
+    selected-background: #3F4D53;
+    prompt-background: #1F2E49;
+}
+
+window {
+    width: 500;
+    border: 3;
+    border-radius: 10;
+}
+
+mainbox {
+    border: 0;
+    padding: 10;
+}
+
+inputbar {
+    
+    background-color: @prompt-background;
+    border-radius: 3;
+}
+
+prompt {
+    background-color: @prompt-background;
+    padding: 3;
+}
+
+entry {
+    background-color: @prompt-background;
+    padding: 3;
+}
+
+case-indicator {
+    background-color: @prompt-background;
+    padding: 3;
+}
+
+element {
+    padding: 3;
+}
+
+element selected {
+    background-color: @selected-background;
+    border-radius: 3;
+}
+
+textbox {
+    padding: 10;
+}

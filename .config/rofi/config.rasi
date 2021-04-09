@@ -21,4 +21,4 @@ configuration {
 	window-format: "{w}: {t}";
 	disable-history: false;
 }
-@theme "themes/dt-center"
+@theme "themes/darkblue-minimal"
