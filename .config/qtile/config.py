@@ -26,8 +26,9 @@ import subprocess
 # Variables
 mod = "mod4" # Windows key
 terminal = "alacritty"
-rofi = "rofi -show drun"
-autostart_path = "~/.config/qtile/autostart.sh"
+rofi = "rofi -show "
+autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
+filemanager = "nautilus"
 
 ##### KEY COMBINATIONS #####
 keys = [
@@ -57,17 +58,27 @@ keys = [
         lazy.spawn("xbacklight - 10"),
         desc="Increase brightness"
     ),
-    # Rofi drun
+    # Rofi
     Key(
         [mod], "r", 
-        lazy.spawn(rofi), 
+        lazy.spawn(rofi + 'drun'), 
         desc="Spawn a command using a prompt widget"
     ),
-    # Terminal
+    Key(
+        [mod], "Tab", 
+        lazy.spawn(rofi + 'window'), 
+        desc="All windows in groups"
+    ),
+    # Terminal and files
     Key(
         [mod], "Return", 
         lazy.spawn(terminal), 
         desc="Launch terminal"
+    ),
+    Key(
+        [mod], "e",
+        lazy.spawn(filemanager),
+        desc="Launch file manager"
     ),
     # Layouts & windows
     Key(
@@ -91,9 +102,9 @@ keys = [
         desc="Shrink window"
     ),
     Key(
-        [mod], "Tab", 
+        [mod], "space",
         lazy.screen.next_group(), 
-        desc="Jumo between groups"
+        desc="Next group"
     ),
     Key(
         [mod], "q", 
@@ -158,7 +169,7 @@ groups_names = [
     ("SYS", {'label': "", 'layout': 'monadtall'}),
     ("DEV", {'label': "", 'layout': 'max'}),
     ("FIL", {'label': "", 'layout': 'monadtall'}),
-    ("BCK", {'label': "", 'layout': 'max'})
+    ("IMG", {'label': "", 'layout': 'max'})
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in groups_names]
@@ -183,7 +194,7 @@ layout_theme = {
     "margin": 8, 
     "border_focus": "#8ecae6", 
     "border_normal": "#023047", 
-    "border_width": 3, 
+    "border_width": 2, 
     "ratio": 0.5
 }
 
@@ -212,6 +223,11 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Image(
+                    filename="~/.config/qtile/icons/arcolinux.png",
+                    margin_y=4,
+                    margin_x=6
+                ),
                 widget.GroupBox(
                     font="FontAwesome Bold",
                     fontsize=15,
@@ -307,6 +323,18 @@ screens = [
                             filename="~/.config/qtile/icons/separator.png",
                             margin_y=6,
                             margin_x=10
+                        ),
+                        widget.Image(
+                            filename="~/.config/qtile/icons/icon-update.png",
+                            margin_y=6,
+                            margin_x=3
+                        ),
+                        widget.CheckUpdates(
+                            display_format="{updates}",
+                            colour_have_updates="#9EC1CF",
+                            colour_no_updates="#9EC1CF",
+                            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')},
+                            no_update_string="0"
                         ),
                         widget.Image(
                             filename="~/.config/qtile/icons/icon-folder.png",
@@ -418,7 +446,6 @@ focus_on_window_activation = "smart"
 ##### AUTOSTART #####
 @hook.subscribe.startup_once
 def startup_once():
-    autostart = os.path.expanduser(autostart_path)
     subprocess.call([autostart])
 
 # Weird line but... If it's here I will leave it
