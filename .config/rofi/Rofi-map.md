@@ -63,16 +63,17 @@ window {}
             prompt {}
             entry {}
             case-indicator {}
-    message {}
-        textbox {}
-    listview {}
-        element {}
-        element selected {}
-    mode-switcher {}
-        Button {}
+        message {}
+            textbox {}
+        listview {}
+            element {}
+            element selected {}
+            element alternate {}
+        mode-switcher {}
+            Button {}
 
 
 
-    error-message {}
-        textbox {}
+        error-message {}
+            textbox {}
 ```
