@@ -30,6 +30,7 @@ rofi = "rofi -show "
 autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
 filemanager = "nautilus"
 wallpaper_folder = "~/wallpapers/minimal"
+lockscreen = "light-locker-command -l"
 
 ##### KEY COMBINATIONS #####
 keys = [
@@ -114,8 +115,8 @@ keys = [
     ),
     Key(
         [mod], "space",
-        lazy.screen.next_group(), 
-        desc="Next group"
+        lazy.screen.toggle_group(), 
+        desc="Last group"
     ),
     Key(
         [mod], "q", 
@@ -128,7 +129,12 @@ keys = [
         lazy.restart(), 
         desc="Restart Qtile"
     ),
-
+    # Lock screen
+    Key(
+        [mod], "l",
+        lazy.spawn(lockscreen),
+        desc="Lock system"
+    ),
     # Key chords
     KeyChord(
         [mod], "w", [
