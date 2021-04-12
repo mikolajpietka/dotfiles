@@ -175,17 +175,28 @@ keys = [
 ##### GROUPS #####
 
 # Name groups
-groups_names = [
-    ("WWW", {'label': "", 'layout': 'max'}),
-    ("SYS", {'label': "", 'layout': 'monadtall'}),
-    ("DEV", {'label': "", 'layout': 'max'}),
-    ("FIL", {'label': "", 'layout': 'monadtall'}),
-    ("IMG", {'label': "", 'layout': 'max'})
+group_names = [
+    "Web", #0
+    "System", #1
+    "Code", #2
+    "File", #3
+    "Image", #4
+    "Document", #5
+    "Music", #Not added - should be?
+    "video", #Not added - should be?
+]
+group_prop = [
+    (group_names[0], {'label': "", 'layout': 'max'}),
+    (group_names[1], {'label': "", 'layout': 'monadtall'}),
+    (group_names[2], {'label': "", 'layout': 'max'}),
+    (group_names[3], {'label': "", 'layout': 'monadtall'}),
+    (group_names[4], {'label': "", 'layout': 'max'}),
+    (group_names[5], {'label': "", 'layout': 'max'})
 ]
 
-groups = [Group(name, **kwargs) for name, kwargs in groups_names]
+groups = [Group(name, **kwargs) for name, kwargs in group_prop]
 
-for i, (name, kwargs) in enumerate(groups_names, 1):
+for i, (name, kwargs) in enumerate(group_prop, 1):
     keys.append(
         Key(
             [mod], str(i), 
@@ -453,6 +464,23 @@ floating_layout = layout.Floating(float_rules=[
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+
+##### WINDOW TO GROUP #####
+@hook.subscribe.client_new
+def to_group(client):
+    g={}
+    g[group_names[0]] = ["Navigator", "firefox"]
+    g[group_names[1]] = ["Alacritty"]
+    g[group_names[2]] = ["code-oss"]
+    g[group_names[3]] = ["org.gnome.Nautilus"]
+    g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
+    g[group_names[5]] = ["evince", "libreoffice", "soffice"]
+
+    wm_class = client.window.get_wm_class()[0]
+    for i in range(len(g)):
+        if wm_class in list(g.values())[i]:
+            group = list(g.keys())[i]
+            client.togroup(group, switch_group=True)
 
 ##### AUTOSTART #####
 @hook.subscribe.startup_once
