@@ -188,8 +188,7 @@ group_names = [
     "File", #3
     "Image", #4
     "Document", #5
-    "Music", #Not added - should be?
-    "video", #Not added - should be?
+    "Fun", #6
 ]
 group_prop = [
     (group_names[0], {'label': "", 'layout': 'max'}),
@@ -197,7 +196,8 @@ group_prop = [
     (group_names[2], {'label': "", 'layout': 'max'}),
     (group_names[3], {'label': "", 'layout': 'monadtall'}),
     (group_names[4], {'label': "", 'layout': 'max'}),
-    (group_names[5], {'label': "", 'layout': 'max'})
+    (group_names[5], {'label': "", 'layout': 'max'}),
+    (group_names[6], {'label': "", 'layout': 'max'}),
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_prop]
@@ -323,7 +323,8 @@ screens = [
                     backlight_name="intel_backlight",
                     update_interval=0.5,
                     step=5,
-                    foreground="#FEB144"
+                    foreground="#FEB144",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("xbacklight -set 100")}
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-battery.png",
@@ -393,10 +394,10 @@ screens = [
                             margin_x=10
                         ),
                         widget.Image(
-                            filename="~/.config/qtile/icons/button-power.png",
+                            filename="~/.config/qtile/icons/button-logout.png",
                             margin_y=6,
                             margin_x=5,
-                            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("shutdown now")}
+                            mouse_callbacks = {'Button1': lambda: qtile.cmd_shutdown()}
                         ),
                         widget.Image(
                             filename="~/.config/qtile/icons/button-reboot.png",
@@ -405,10 +406,10 @@ screens = [
                             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("reboot")}
                         ),
                         widget.Image(
-                            filename="~/.config/qtile/icons/button-logout.png",
+                            filename="~/.config/qtile/icons/button-power.png",
                             margin_y=6,
                             margin_x=5,
-                            mouse_callbacks = {'Button1': lambda: qtile.cmd_shutdown()}
+                            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("shutdown now")}
                         ),
                     ],
                     font='FontAwesome',
@@ -425,6 +426,7 @@ screens = [
             ],
             28, # Height
             opacity=0.9,
+            # margin = [5, 5, 5, 5] # Margin [N E S W]
         ),
     ),
 ]
@@ -449,7 +451,6 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-main = None  # WARNING: this is deprecated and will be removed soon
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -481,6 +482,7 @@ def to_group(client):
     g[group_names[3]] = ["org.gnome.Nautilus"]
     g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
     g[group_names[5]] = ["evince", "libreoffice", "soffice"]
+    g[group_names[6]] = ["spotify", "vlc"]
 
     wm_class = client.window.get_wm_class()[0]
     for i in range(len(g)):
