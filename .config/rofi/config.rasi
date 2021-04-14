@@ -18,7 +18,8 @@ configuration {
 	show-icons: true;
 	drun-match-fields: "all";
 	drun-display-format: "{name}"; 
-	window-format: "{w}: {t}";
+	window-format: "{w}	{t}";
 	disable-history: false;
+	kb-delete-entry: "Control+q";
 }
 @theme "themes/darkblue-minimal"
