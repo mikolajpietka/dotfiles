@@ -135,6 +135,11 @@ keys = [
         lazy.spawn(lockscreen),
         desc="Lock system"
     ),
+    # Calculator
+    Key(
+        [mod], "k",
+        lazy.spawn('gnome-calculator')
+    ),
     # Key chords
     KeyChord(
         [mod], "w", [
@@ -463,10 +468,11 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='gnome-calculator'),
     ],
     border_focus='#8ecae6',
     border_normal='#023047',
-    border_width=3,
+    border_width=0,
     rounded=True
 )
 auto_fullscreen = True
