@@ -285,10 +285,6 @@ screens = [
                     },
                     name_transform=lambda name: name.upper()
                 ),
-                widget.Notify(
-                    default_timeout=10,
-                    fmt="{}"
-                ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-clock.png",
                     margin_y=6,

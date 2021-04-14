@@ -21,3 +21,4 @@ numlockx on &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 timedatectl set-timezone Europe/Warsaw &
 light-locker &
+/usr/bin/dunst &
