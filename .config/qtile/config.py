@@ -99,17 +99,17 @@ keys = [
         desc="Switch floating mode"
     ),
     Key(
-        ["mod1"], "Tab", 
+        [mod], "Tab", 
         lazy.layout.next(), 
         desc="Move window focus to other window"
     ),
     Key(
-        [mod], "Up", 
+        [mod], "equal", 
         lazy.layout.grow(),
         desc="Grow window"
     ),
     Key(
-        [mod], "Down", 
+        [mod], "minus", 
         lazy.layout.shrink(),
         desc="Shrink window"
     ),
