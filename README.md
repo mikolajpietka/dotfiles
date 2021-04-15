@@ -1,5 +1,4 @@
 # Dotfiles
-Configuration files for my builds
 ```
 #################################################################
 ## ___  ____ _         _       _  ______ _      _   _          ##
@@ -12,3 +11,22 @@ Configuration files for my builds
 ##                          |__/                               ##
 #################################################################
 ```
+
+My dotfies for my desktop
+
+## Apps
+
+* Qtile
+* Rofi
+* Alacritty
+* Starship
+* Dunst
+
+Additional configs
+* GTK3
+* VIM
+* bashrc
+
+## Dependencies
+
+> Need to add <
