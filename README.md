@@ -12,7 +12,7 @@
 #################################################################
 ```
 
-My dotfies for my desktop
+Dotfies for my desktop
 
 ## Apps
 
@@ -21,6 +21,7 @@ My dotfies for my desktop
 * Alacritty
 * Starship
 * Dunst
+* Powerline-shell
 
 Additional configs
 * GTK3
@@ -29,4 +30,4 @@ Additional configs
 
 ## Dependencies
 
-> Need to add <
+> Need to add 
