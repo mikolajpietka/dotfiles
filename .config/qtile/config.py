@@ -277,6 +277,8 @@ screens = [
                     margin_x=10
                 ),
                 widget.WindowName(
+                    font="UbuntuMono Bold",
+                    fontsize=14,
                     format="{name}"
                 ),
                 widget.Chord(
