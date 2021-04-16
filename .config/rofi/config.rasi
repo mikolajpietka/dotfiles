@@ -21,5 +21,6 @@ configuration {
 	window-format: "{w}	{t}";
 	disable-history: false;
 	kb-delete-entry: "Control+q";
+	terminal: "alacritty";
 }
 @theme "themes/darkblue-minimal"
