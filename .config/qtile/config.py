@@ -30,7 +30,7 @@ rofi = "rofi -show "
 autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
 filemanager = "nautilus"
 wallpaper_folder = "~/wallpapers/minimal"
-lockscreen = "light-locker-command -l"
+lockscreen = "gnome-screensaver-command -l"
 
 ##### KEY COMBINATIONS #####
 keys = [
