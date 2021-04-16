@@ -74,12 +74,17 @@ keys = [
     Key(
         [mod], "r", 
         lazy.spawn(rofi + 'drun'), 
-        desc="Spawn a command using a prompt widget"
+        desc="Spawn an app using a prompt"
     ),
     Key(
         [mod], "Tab", 
         lazy.spawn(rofi + 'window'), 
         desc="All windows in groups"
+    ),
+    Key(
+        ["mod4", "mod1"], "r",
+        lazy.spawn(rofi + 'run'),
+        desc="Spawn a command using prompt"
     ),
     # Terminal and files
     Key(
