@@ -28,9 +28,9 @@ mod = "mod4" # Windows key
 terminal = "alacritty"
 rofi = "rofi -show "
 autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
+powermenu = os.path.expanduser("~/.config/rofi/scripts/powermenu.sh")
 filemanager = "nautilus"
-wallpaper_folder = "~/wallpapers/minimal"
-lockscreen = "gnome-screensaver-command -l"
+lockscreen = "betterlockscreen -l"
 
 ##### KEY COMBINATIONS #####
 keys = [
@@ -144,47 +144,6 @@ keys = [
     Key(
         [mod], "k",
         lazy.spawn('gnome-calculator')
-    ),
-    # Key chords
-    KeyChord(
-        [mod], "w", [
-            Key(
-                [], "m", 
-                lazy.window.toggle_floating(), 
-                desc="Toggle floating"
-            ),
-            Key(
-                [], "f", 
-                lazy.window.toggle_fullscreen(),
-                desc="Fullscreen"
-            ),
-            Key(
-                [], "Left", 
-                lazy.layout.shuffle_left(), 
-                desc="Move window to the left"
-            ),
-            Key(
-                [], "Right", 
-                lazy.layout.shuffle_right(), 
-                desc="Move window to the right"
-            ),
-            Key(
-                [], "Down", 
-                lazy.layout.shuffle_down(), 
-                desc="Move window down"
-            ),
-            Key(
-                [], "Up", 
-                lazy.layout.shuffle_up(), 
-                desc="Move window up"
-            ),
-            Key(
-                [], "Tab", 
-                lazy.layout.next(),
-                desc="Next window"
-            ),
-        ],
-        mode="Window"
     ),
 ]
 
@@ -354,78 +313,11 @@ screens = [
                     margin=0,
                     padding=0
                 ),
-                widget.WidgetBox(
-                    widgets=[
-                        widget.Image(
-                            filename="~/.config/qtile/icons/separator.png",
-                            margin_y=6,
-                            margin_x=10
-                        ),
-                        widget.Image(
-                            filename="~/.config/qtile/icons/icon-update.png",
-                            margin_y=6,
-                            margin_x=3
-                        ),
-                        widget.CheckUpdates(
-                            display_format="{updates}",
-                            colour_have_updates="#9EC1CF",
-                            colour_no_updates="#9EC1CF",
-                            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')},
-                            no_update_string="0"
-                        ),
-                        widget.Image(
-                            filename="~/.config/qtile/icons/icon-folder.png",
-                            margin_y=6,
-                            margin_x=3
-                        ),
-                        widget.DF(
-                            visible_on_warn=False,
-                            format="{uf}{m}",
-                            foreground="#FCD462"
-                        ),
-                        widget.Image(
-                            filename="~/.config/qtile/icons/icon-wallpaper.png",
-                            margin_y=6,
-                            margin_x=3
-                        ),
-                        widget.Wallpaper(
-                            directory=wallpaper_folder,
-                            fmt="",
-                            font="FontAwesome",
-                            fontsize=14,
-                            random_selection=True,
-                            foreground="#4CAF50"
-                        ),
-                        widget.Image(
-                            filename="~/.config/qtile/icons/separator.png",
-                            margin_y=6,
-                            margin_x=10
-                        ),
-                        widget.Image(
-                            filename="~/.config/qtile/icons/button-logout.png",
-                            margin_y=6,
-                            margin_x=5,
-                            mouse_callbacks = {'Button1': lambda: qtile.cmd_shutdown()}
-                        ),
-                        widget.Image(
-                            filename="~/.config/qtile/icons/button-reboot.png",
-                            margin_y=6,
-                            margin_x=5,
-                            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("reboot")}
-                        ),
-                        widget.Image(
-                            filename="~/.config/qtile/icons/button-power.png",
-                            margin_y=6,
-                            margin_x=5,
-                            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("shutdown now")}
-                        ),
-                    ],
-                    font='FontAwesome',
-                    text_closed="  ",
-                    text_open="  ",
-                    close_button_location="right",
-		            fontsize=14,
-		            padding=0
+                widget.Image(
+                    filename="~/.config/qtile/icons/button-power.png",
+                    margin_y=6,
+                    margin_x=5,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(powermenu)}
                 ),
                 widget.Sep(
                     linewidth = 0,
