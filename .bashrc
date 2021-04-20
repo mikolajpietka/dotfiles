@@ -43,8 +43,12 @@ alias prog='progress -m'
 # Pacman
 alias pacman='pacman --color auto'
 
-# GRUB
+# Update group
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias update-initcpio='sudo mkinitcpio -P'
+
+# Edit group
+alias edit-initcpio='sudo vim /etc/mkinitcpio.conf'
 
 # Errors from journalctl
 alias jctl='journalctl -p 3 -xb'
