@@ -23,3 +23,5 @@ disabled = true
 [git_status]
 style = "bold yellow"
 
+[battery]
+disabled = true
