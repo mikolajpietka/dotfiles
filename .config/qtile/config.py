@@ -248,7 +248,7 @@ screens = [
                 #     margin_x=6
                 # ),
                 widget.GroupBox(
-                    font="FontAwesome",
+                    font="FontAwesome Bold",
                     fontsize=15,
                     padding=3,
                     highlight_method="line",
