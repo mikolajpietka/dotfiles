@@ -149,7 +149,7 @@ keys = [
 
 ##### GROUPS #####
 
-# Name groups
+# Name of groups
 group_names = [
     "Web    ", #0
     "System ", #1
@@ -160,35 +160,14 @@ group_names = [
     "Fun    ", #6
 ]
 
-# Font Awesome labels
-group_labels = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-]
-
-# Numbers labels
-# group_labels = [
-#     "1",
-#     "2",
-#     "3",
-#     "4",
-#     "5",
-#     "6",
-#     "7",
-# ]
 group_prop = [
-    (group_names[0], {'label': group_labels[0], 'layout': 'max'}),
-    (group_names[1], {'label': group_labels[1], 'layout': 'monadtall'}),
-    (group_names[2], {'label': group_labels[2], 'layout': 'max'}),
-    (group_names[3], {'label': group_labels[3], 'layout': 'monadtall'}),
-    (group_names[4], {'label': group_labels[4], 'layout': 'max'}),
-    (group_names[5], {'label': group_labels[5], 'layout': 'max'}),
-    (group_names[6], {'label': group_labels[6], 'layout': 'max'}),
+    (group_names[0], {'label': "", 'layout': 'max'}),
+    (group_names[1], {'label': "", 'layout': 'monadtall'}),
+    (group_names[2], {'label': "", 'layout': 'max'}),
+    (group_names[3], {'label': "", 'layout': 'monadtall'}),
+    (group_names[4], {'label': "", 'layout': 'max'}),
+    (group_names[5], {'label': "", 'layout': 'max'}),
+    (group_names[6], {'label': "", 'layout': 'max'}),
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_prop]
@@ -242,11 +221,6 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                # widget.Image(
-                #     filename="~/.config/qtile/icons/arcolinux.png",
-                #     margin_y=4,
-                #     margin_x=6
-                # ),
                 widget.GroupBox(
                     font="FontAwesome Bold",
                     fontsize=15,
@@ -399,7 +373,7 @@ focus_on_window_activation = "smart"
 @hook.subscribe.client_new
 def to_group(client):
     g={}
-    g[group_names[0]] = ["Navigator", "firefox", "vivaldi-stable"]
+    g[group_names[0]] = ["Navigator", "firefox"]
     g[group_names[1]] = ["Alacritty"]
     g[group_names[2]] = ["code-oss"]
     g[group_names[3]] = ["org.gnome.Nautilus"]

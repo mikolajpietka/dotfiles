@@ -15,10 +15,8 @@
 
 ### AUTOSTART FOR QTILE ###
 
-wallpapers_folder = "~/wallpapers/minimal"
-
 picom &
-feh --bg-scale ~/wallpapers/minimal/$(ls -I "README.md" ~/wallpapers/minimal | shuf -n1) &
+feh --bg-scale --randomize ~/wallpapers/minimal/ &
 numlockx on &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 timedatectl set-timezone Europe/Warsaw &
