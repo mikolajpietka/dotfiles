@@ -373,7 +373,7 @@ focus_on_window_activation = "smart"
 @hook.subscribe.client_new
 def to_group(client):
     g={}
-    g[group_names[0]] = ["Navigator", "firefox"]
+    g[group_names[0]] = ["Navigator", "firefox", "microsoft teams - preview"]
     g[group_names[1]] = ["Alacritty"]
     g[group_names[2]] = ["code-oss"]
     g[group_names[3]] = ["org.gnome.Nautilus"]
