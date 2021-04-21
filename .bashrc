@@ -49,6 +49,7 @@ alias update-initcpio='sudo mkinitcpio -P'
 
 # Edit group
 alias edit-initcpio='sudo vim /etc/mkinitcpio.conf'
+alias edit-grub='sudo vim /etc/default/grub'
 
 # Errors from journalctl
 alias jctl='journalctl -p 3 -xb'
