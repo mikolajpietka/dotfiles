@@ -159,14 +159,36 @@ group_names = [
     "Docs   ", #5
     "Fun    ", #6
 ]
+
+# Font Awesome labels
+# group_labels = [
+#     "",
+#     "",
+#     "",
+#     "",
+#     "",
+#     "",
+#     "",
+# ]
+
+# Numbers labels
+group_labels = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+]
 group_prop = [
-    (group_names[0], {'label': "", 'layout': 'max'}),
-    (group_names[1], {'label': "", 'layout': 'monadtall'}),
-    (group_names[2], {'label': "", 'layout': 'max'}),
-    (group_names[3], {'label': "", 'layout': 'monadtall'}),
-    (group_names[4], {'label': "", 'layout': 'max'}),
-    (group_names[5], {'label': "", 'layout': 'max'}),
-    (group_names[6], {'label': "", 'layout': 'max'}),
+    (group_names[0], {'label': group_labels[0], 'layout': 'max'}),
+    (group_names[1], {'label': group_labels[1], 'layout': 'monadtall'}),
+    (group_names[2], {'label': group_labels[2], 'layout': 'max'}),
+    (group_names[3], {'label': group_labels[3], 'layout': 'monadtall'}),
+    (group_names[4], {'label': group_labels[4], 'layout': 'max'}),
+    (group_names[5], {'label': group_labels[5], 'layout': 'max'}),
+    (group_names[6], {'label': group_labels[6], 'layout': 'max'}),
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_prop]
