@@ -161,26 +161,26 @@ group_names = [
 ]
 
 # Font Awesome labels
-# group_labels = [
-#     "",
-#     "",
-#     "",
-#     "",
-#     "",
-#     "",
-#     "",
-# ]
+group_labels = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
 
 # Numbers labels
-group_labels = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-]
+# group_labels = [
+#     "1",
+#     "2",
+#     "3",
+#     "4",
+#     "5",
+#     "6",
+#     "7",
+# ]
 group_prop = [
     (group_names[0], {'label': group_labels[0], 'layout': 'max'}),
     (group_names[1], {'label': group_labels[1], 'layout': 'monadtall'}),
@@ -248,7 +248,7 @@ screens = [
                 #     margin_x=6
                 # ),
                 widget.GroupBox(
-                    font="FontAwesome Bold",
+                    font="FontAwesome",
                     fontsize=15,
                     padding=3,
                     highlight_method="line",
