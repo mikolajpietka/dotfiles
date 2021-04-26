@@ -31,8 +31,8 @@ autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
 powermenu = os.path.expanduser("~/.config/rofi/scripts/powermenu.sh")
 filemanager = "nautilus"
 lockscreen = "physlock -mp 'Session locked'"
-screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/screenshots/'"
-screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/screenshots/'"
+screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
+screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
 ##### KEY COMBINATIONS #####
 keys = [
