@@ -17,7 +17,7 @@
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget, hook, qtile, extension
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy 
 # For autostart.sh
 import os
@@ -30,7 +30,9 @@ rofi = "rofi -show "
 autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
 powermenu = os.path.expanduser("~/.config/rofi/scripts/powermenu.sh")
 filemanager = "nautilus"
-lockscreen = "betterlockscreen -l"
+lockscreen = "physlock -mp 'Session locked'"
+screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/screenshots/'"
+screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/screenshots/'"
 
 ##### KEY COMBINATIONS #####
 keys = [
@@ -62,13 +64,13 @@ keys = [
     ),
     Key(
         [], "Print",
-        lazy.spawn("gnome-screenshot"),
+        lazy.spawn(screenshot),
         desc="Take screenshot"
     ),
     Key(
         ["control"], "Print",
-        lazy.spawn("gnome-screenshot -i"),
-        desc="Screenshot settings"
+        lazy.spawn(screenshot_int),
+        desc="Take screenshot of chosen space"
     ),
     # Rofi
     Key(
@@ -85,6 +87,11 @@ keys = [
         ["mod4", "mod1"], "r",
         lazy.spawn(rofi + 'run'),
         desc="Spawn a command using prompt"
+    ),
+    Key(
+        [mod], "Escape",
+        lazy.spawn(powermenu),
+        desc="Powermenu"
     ),
     # Terminal and files
     Key(
@@ -161,11 +168,11 @@ group_names = [
 ]
 
 group_prop = [
-    (group_names[0], {'label': "", 'layout': 'max'}),
-    (group_names[1], {'label': "", 'layout': 'monadtall'}),
-    (group_names[2], {'label': "", 'layout': 'max'}),
-    (group_names[3], {'label': "", 'layout': 'monadtall'}),
-    (group_names[4], {'label': "", 'layout': 'max'}),
+    (group_names[0], {'label': "爵", 'layout': 'max'}),
+    (group_names[1], {'label': "", 'layout': 'monadtall'}),
+    (group_names[2], {'label': "", 'layout': 'max'}),
+    (group_names[3], {'label': "", 'layout': 'monadtall'}),
+    (group_names[4], {'label': "", 'layout': 'max'}),
     (group_names[5], {'label': "", 'layout': 'max'}),
     (group_names[6], {'label': "", 'layout': 'max'}),
 ]
@@ -222,8 +229,8 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    font="FontAwesome Bold",
-                    fontsize=15,
+                    font="UbuntuMono Nerd Font Bold",
+                    fontsize=28,
                     padding=3,
                     highlight_method="line",
                     this_current_screen_border="#FFFFFF",
@@ -239,13 +246,8 @@ screens = [
                 widget.WindowName(
                     font="UbuntuMono Bold",
                     fontsize=14,
-                    format="{name}"
-                ),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper()
+                    format="{name}",
+                    max_chars=80
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-clock.png",
@@ -254,7 +256,7 @@ screens = [
                 ),
                 widget.Clock(
                     format='%H:%M %a, %d.%m',
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("gnome-calendar")},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("gsimplecal")},
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-wifi.png",
@@ -263,7 +265,7 @@ screens = [
                 ),
                 widget.Wlan(
                     interface="wlp9s0",
-                    format="{essid} {percent:2.0%}",
+                    format="{essid} {percent:1.0%}",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nm-connection-editor")},
                     foreground="#9EC1CF"
                 ),
@@ -378,8 +380,8 @@ def to_group(client):
     g[group_names[2]] = ["code-oss"]
     g[group_names[3]] = ["org.gnome.Nautilus"]
     g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
-    g[group_names[5]] = ["evince", "libreoffice", "soffice"]
-    g[group_names[6]] = ["spotify", "vlc"]
+    g[group_names[5]] = ["evince", "libreoffice", "soffice", "gedit"]
+    g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time"]
 
     wm_class = client.window.get_wm_class()[0]
     for i in range(len(g)):

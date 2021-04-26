@@ -19,36 +19,30 @@ declare -a managers=(
 
 declare -a options=(
     "Shutdown"
+    "Suspend"
     "Logout"
     "Reboot"
     "Quit"
 )
 
-rofi="rofi -dmenu -i -l 4 -no-show-icons"
+rofi="rofi -dmenu -i -l 5 -no-show-icons"
 
 choice=$(printf '%s\n' ${options[@]} | $rofi -p "Powermenu")
 
 case $choice in
     "Shutdown")
-        if [[ $(echo -e "Yes\nNo" | $rofi -p "Sure?") == "Yes" ]]
-        then shutdown now
-        else exit 0
-        fi
+        shutdown now
+    ;;
+    "Suspend")
+        systemctl suspend
     ;;
     "Logout")
-        if [[ $(echo -e "Yes\nNo" | $rofi -p "Sure?") == "Yes" ]]
-        then 
-            for manager in ${managers[@]}
-                do killall $manager
-            done
-        else exit 0
-        fi
+        for manager in ${managers[@]}
+            do killall $manager
+        done
     ;;
     "Reboot")
-        if [[ $(echo -e "Yes\nNo" | $rofi -p "Sure?") == "Yes" ]]
-        then reboot
-        else exit 0
-        fi
+        reboot
     ;;
     "Quit")
         exit 0

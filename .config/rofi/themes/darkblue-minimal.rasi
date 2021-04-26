@@ -27,7 +27,7 @@
 }
 
 window {
-    width: 500;
+    width: 425;
     border: 3;
     border-radius: 10;
 }

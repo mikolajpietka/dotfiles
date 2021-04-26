@@ -16,7 +16,7 @@
 ### AUTOSTART FOR QTILE ###
 
 picom &
-feh --bg-scale --randomize ~/wallpapers/minimal/ &
+feh --bg-fill --no-fehbg --randomize ~/wallpapers/minimal/ &
 numlockx on &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 timedatectl set-timezone Europe/Warsaw &

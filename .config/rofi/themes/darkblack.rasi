@@ -1,0 +1,92 @@
+/*
+#################################################################
+## ___  ____ _         _       _  ______ _      _   _          ##
+## |  \/  (_) |       | |     (_) | ___ (_)    | | | |         ##
+## | .  . |_| | _____ | | __ _ _  | |_/ /_  ___| |_| | ____ _  ##
+## | |\/| | | |/ / _ \| |/ _` | | |  __/| |/ _ \ __| |/ / _` | ##
+## | |  | | |   < (_) | | (_| | | | |   | |  __/ |_|   < (_| | ##
+## \_|  |_/_|_|\_\___/|_|\__,_| | \_|   |_|\___|\__|_|\_\__,_| ##
+##                           _/ |                              ##
+##                          |__/                               ##
+#################################################################
+
+* ROFI Color theme
+* NAME: DarkBlack
+* AUTHOR: Mikolaj Pietka
+*/
+
+* {
+    dark-background: #0C0E0C;
+    lighter-dark: #191919;
+    accent-darker: #081950;
+    accent-lighter: #1034A6;
+    text-lighter: #FFFFFF;
+    text-darker: #EEEEEE;
+
+    background-color: @dark-background;
+    border-color: @dark-background;
+    font: "Ubuntu 15";
+    text-color: @text-lighter;
+}
+
+window {
+    width: 425;
+    border: 0;
+    border-radius: 10;
+}
+
+mainbox {
+    padding: 7;
+}
+
+inputbar {
+    padding: 5;
+    background-color: @lighter-dark;
+    border-radius: 5;
+}
+
+prompt {
+    background-color: @accent-lighter;
+    text-color: @text-darker;
+    border-radius: 3;
+    padding: 3;
+    font: "Ubuntu Bold 15";
+}
+
+entry {
+    background-color: @accent-darker;
+    padding: 3;
+    border-radius: 3;
+}
+
+case-indicator {
+    enabled: false;
+}
+
+listview {
+    background-color: @lighter-dark;
+    padding: 5;
+    border-radius: 5;
+}
+
+element {
+    padding: 3;
+    border-radius: 3;
+    background-color: @accent-darker;
+}
+
+element selected {
+    background-color: @accent-lighter;
+    text-color: @text-darker;
+}
+
+error-message {
+    padding: 5;
+    border-radius: 5;
+}
+
+textbox {
+    background-color: @accent-lighter;
+    padding: 5;
+    border-radius: 5;
+}

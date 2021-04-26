@@ -13,8 +13,8 @@
 # Created by Mikolaj Pietka
 */
 configuration {
-	modi: "drun,file-browser,run,window,";
-	lines: 7;
+	modi: "drun,run,window,";
+	lines: 5;
 	show-icons: true;
 	drun-match-fields: "all";
 	drun-display-format: "{name}"; 
@@ -22,5 +22,6 @@ configuration {
 	disable-history: false;
 	kb-delete-entry: "Control+q";
 	terminal: "alacritty";
+	max-history-size: 10;
 }
-@theme "themes/darkblue-minimal"
+@theme "themes/darkblack"
