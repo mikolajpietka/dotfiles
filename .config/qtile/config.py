@@ -377,7 +377,7 @@ def to_group(client):
     g={}
     g[group_names[0]] = ["Navigator", "firefox", "microsoft teams - preview"]
     g[group_names[1]] = ["Alacritty"]
-    g[group_names[2]] = ["code-oss"]
+    g[group_names[2]] = ["code-oss", "code"]
     g[group_names[3]] = ["org.gnome.Nautilus"]
     g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
     g[group_names[5]] = ["evince", "libreoffice", "soffice", "gedit"]
