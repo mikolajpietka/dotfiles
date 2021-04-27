@@ -22,6 +22,6 @@ configuration {
 	disable-history: false;
 	kb-delete-entry: "Control+q";
 	terminal: "alacritty";
-	max-history-size: 10;
+	max-history-size: 20;
 }
 @theme "themes/darkblack"
