@@ -371,7 +371,7 @@ floating_layout = layout.Floating(float_rules=[
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
-##### WINDOW TO GROUP #####
+##### APPS TO GROUP #####
 @hook.subscribe.client_new
 def to_group(client):
     g={}
@@ -381,7 +381,7 @@ def to_group(client):
     g[group_names[3]] = ["org.gnome.Nautilus"]
     g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
     g[group_names[5]] = ["evince", "libreoffice", "soffice", "gedit"]
-    g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time"]
+    g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time", "transmission-gtk"]
 
     wm_class = client.window.get_wm_class()[0]
     for i in range(len(g)):
