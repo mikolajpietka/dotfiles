@@ -25,7 +25,7 @@
 
     background-color: @dark-background;
     border-color: @dark-background;
-    font: "Ubuntu 15";
+    font: "Ubuntu 17";
     text-color: @text-lighter;
 }
 
@@ -50,7 +50,7 @@ prompt {
     text-color: @text-darker;
     border-radius: 3;
     padding: 3;
-    font: "Ubuntu Bold 15";
+    font: "Ubuntu Bold 17";
 }
 
 entry {
