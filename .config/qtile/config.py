@@ -303,7 +303,8 @@ screens = [
                     format='{char}{percent:1.0%}',
                     show_short_text=False,
                     update_interval=1,
-                    foreground="#9EE09E"
+                    foreground="#9EE09E",
+                    notify_below=15
                 ),
                 widget.CurrentLayoutIcon(
                     custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons/")],
