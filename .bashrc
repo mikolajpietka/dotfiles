@@ -57,5 +57,8 @@ alias jctl='journalctl -p 3 -xb'
 # Loaded at start
 neofetch
 
+# The fuck command
+eval "$(thefuck --alias)"
+
 # Starship
 eval "$(starship init bash)"
