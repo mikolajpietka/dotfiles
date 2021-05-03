@@ -93,6 +93,11 @@ keys = [
         lazy.spawn(powermenu),
         desc="Powermenu"
     ),
+    Key(
+        [mod], "o",
+        lazy.spawn(os.path.expanduser("~/.config/rofi/scripts/open.sh")),
+        desc="Open script"
+    ),
     # Terminal and files
     Key(
         [mod], "Return", 
