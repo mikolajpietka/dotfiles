@@ -205,7 +205,6 @@ layout_theme = {
     "border_focus": "#8ecae6", 
     "border_normal": "#023047", 
     "border_width": 2, 
-    "ratio": 0.5
 }
 
 layouts = [
@@ -214,9 +213,14 @@ layouts = [
     ),
     layout.MonadTall(
         **layout_theme,
+        ratio=0.5
     ),
     layout.Floating(
         **layout_theme,
+    ),
+    layout.Bsp(
+        **layout_theme,
+        fair=False
     )
 ]
 
