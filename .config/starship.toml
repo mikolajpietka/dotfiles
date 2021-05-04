@@ -23,5 +23,8 @@ disabled = true
 [git_status]
 style = "bold yellow"
 
+[git_branch]
+format="[$symbol]($style)"
+
 [battery]
 disabled = true
