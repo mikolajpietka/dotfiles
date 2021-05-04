@@ -1,2 +1,17 @@
 set number  
 set linebreak
+set history=500
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+syntax enable
+set encoding=utf8
+set nobackup
+set nowb
+set noswapfile
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set mouse=a

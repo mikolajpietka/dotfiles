@@ -26,6 +26,7 @@ declare -a CONFIGFILES=(
     "Rofi"
     "Dunst"
     "Bashrc"
+    "Vim"
 )
 
 declare -a WORKSPACES=(
@@ -68,6 +69,9 @@ ${OPEN[0]})
     ;;
     ${CONFIGFILES[5]})
         $TERMINAL -e $EDITOR ~/.bashrc
+    ;;
+    ${CONFIGFILES[6]})
+        $TERMINAL -e $EDITOR ~/.vimrc
     ;;
     *)
         exit 0
