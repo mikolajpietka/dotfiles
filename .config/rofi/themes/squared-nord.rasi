@@ -28,7 +28,6 @@ configuration {
 #window {
     width               : 450;
     background-color    : @bg-color;
-    border-radius       : 5;
 }
 #mainbox {
     spacing             : 0;
