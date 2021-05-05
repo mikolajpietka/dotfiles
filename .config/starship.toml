@@ -1,33 +1,37 @@
-# Don't print a new line at the start of the prompt
+#################################################################
+## ___  ____ _         _       _  ______ _      _   _          ##
+## |  \/  (_) |       | |     (_) | ___ (_)    | | | |         ##
+## | .  . |_| | _____ | | __ _ _  | |_/ /_  ___| |_| | ____ _  ##
+## | |\/| | | |/ / _ \| |/ _` | | |  __/| |/ _ \ __| |/ / _` | ##
+## | |  | | |   < (_) | | (_| | | | |   | |  __/ |_|   < (_| | ##
+## \_|  |_/_|_|\_\___/|_|\__,_| | \_|   |_|\___|\__|_|\_\__,_| ##
+##                           _/ |                              ##
+##                          |__/                               ##
+#################################################################
+
+# Created by Mikolaj Pietka
+
 add_newline = false
+format = """
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$character\
+"""
 
-# Make prompt a single line instead of two lines
-[line_break]
-disabled = true
-
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                         # The name of the module we are configuring is "character"
-success_symbol = "[>](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
-error_symbol = "[✗](bold red) "
-
-# Use custom format
-# format = """
-# [┌───────────────────>](bold green)
-# [│](bold green)$directory$rust$package
-# [└─>](bold green) """
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
-
-[git_status]
-style = "bold yellow"
+[directory]
+truncation_symbol = "../"
 
 [git_branch]
 format = "[$symbol]($style)"
 
-[battery]
-disabled = true
+[git_status]
+style = "bold yellow"
 
 [cmd_duration]
 format = "祥 [$duration]($style)"
+
+[character] 
+success_symbol = "[>](bold green)"
+error_symbol = "[✗](bold red) "
