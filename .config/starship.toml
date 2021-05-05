@@ -21,7 +21,7 @@ $character\
 """
 
 [directory]
-truncation_symbol = "../"
+truncation_symbol = ""
 
 [git_branch]
 format = "[$symbol]($style)"
