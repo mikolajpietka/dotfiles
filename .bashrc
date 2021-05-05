@@ -11,13 +11,7 @@
 
 # Created by Mikolaj Pietka
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-export HISTCONTROL=ignoreboth:erasedups
-
-PS1='[\u@\h \W]\$ '
-
+# PATH
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -25,6 +19,12 @@ fi
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
+
+# Set editor to vim 
+export EDITOR="vim"
+
+# Set manpager to bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
@@ -42,6 +42,7 @@ alias prog='progress -m'
 
 # Pacman
 alias pacman='pacman --color auto'
+alias unlock='sudo rm /var/lib/pacman/db.lck'
 
 # Update group
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
