@@ -24,7 +24,10 @@ disabled = true
 style = "bold yellow"
 
 [git_branch]
-format="[$symbol]($style)"
+format = "[$symbol]($style)"
 
 [battery]
 disabled = true
+
+[cmd_duration]
+format = "祥 [$duration]($style)"
