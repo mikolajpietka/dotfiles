@@ -235,11 +235,6 @@ c.colors.webpage.bg = None
 # Type: Bool
 c.colors.webpage.darkmode.enabled = True
 
-# Default font families to use. Whenever "default_family" is used in a
-# font setting, it's replaced with the fonts listed here. If set to an
-# empty value, a system-specific monospace default is used.
-# Type: List of Font, or Font
-c.fonts.default_family = []
 
 # Bindings for normal mode
 config.bind('xs', 'config-cycle statusbar.show always never')
