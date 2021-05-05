@@ -247,10 +247,8 @@ screens = [
                     inactive="999999",
                     highlight_color=['#ffffff50'] 
                 ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/separator.png",
-                    margin_y=6,
-                    margin_x=10
+                widget.Spacer(
+                    width=20
                 ),
                 widget.WindowName(
                     font="UbuntuMono Bold",
