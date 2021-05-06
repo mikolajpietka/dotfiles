@@ -136,6 +136,12 @@ config.set('content.images', True, 'chrome-devtools://*')
 # Type: Bool
 config.set('content.images', True, 'devtools://*')
 
+# Allow JavaScript to read from or write to the clipboard. With
+# QtWebEngine, writing the clipboard as response to a user interaction
+# is always allowed.
+# Type: Bool
+c.content.javascript.can_access_clipboard = True
+
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'chrome-devtools://*')
@@ -234,7 +240,6 @@ c.colors.webpage.bg = None
 # selective inversion of everything": Combines the two variants   above.
 # Type: Bool
 c.colors.webpage.darkmode.enabled = True
-
 
 # Bindings for normal mode
 config.bind('xs', 'config-cycle statusbar.show always never')
