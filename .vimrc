@@ -18,7 +18,6 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
-syntax enable
 set encoding=utf8
 set nobackup
 set nowb
@@ -29,3 +28,6 @@ set shiftwidth=4
 set tabstop=4
 set mouse=a
 set scrolloff=8
+set clipboard=unnamedplus
+set noshowmode 
+syntax enable

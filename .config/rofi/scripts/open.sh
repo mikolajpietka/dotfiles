@@ -38,12 +38,10 @@ declare -a WALLPAPERS=(
     "Earth"
     "Minimal"
 )
-
+ 
 DMENU="rofi -dmenu -i -l 5 -no-custom -no-show-icons"
 
-TERMINAL="alacritty"
-
-EDITOR="vim"
+DMEDITOR="alacritty -e vim"
 
 SETWALL="feh --bg-fill --no-fehbg --randomize"
 
@@ -53,25 +51,25 @@ ${OPEN[0]})
     CHOICE=$(printf '%s\n' ${CONFIGFILES[@]} | $DMENU -p "Configfiles")
     case $CHOICE in
     ${CONFIGFILES[0]})
-        $TERMINAL -e $EDITOR ~/.config/qtile/config.py
+        $DMEDITOR $HOME/.config/qtile/config.py
     ;;
     ${CONFIGFILES[1]})
-        $TERMINAL -e $EDITOR ~/.config/alacritty/alacritty.yml
+        $DMEDITOR $HOME/.config/alacritty/alacritty.yml
     ;;
     ${CONFIGFILES[2]})
-        $TERMINAL -e $EDITOR ~/.config/starship.toml
+        $DMEDITOR $HOME/.config/starship.toml
     ;;
     ${CONFIGFILES[3]})
-        $TERMINAL -e $EDITOR ~/.config/rofi/config.rasi
+        $DMEDITOR $HOME/.config/rofi/config.rasi
     ;;
     ${CONFIGFILES[4]})
-        $TERMINAL -e $EDITOR ~/.config/dunst/dunstrc
+        $DMEDITOR $HOME/.config/dunst/dunstrc
     ;;
     ${CONFIGFILES[5]})
-        $TERMINAL -e $EDITOR ~/.bashrc
+        $DMEDITOR $HOME/.bashrc
     ;;
     ${CONFIGFILES[6]})
-        $TERMINAL -e $EDITOR ~/.vimrc
+        $DMEDITOR $HOME/.vimrc
     ;;
     *)
         exit 0
