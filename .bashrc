@@ -37,8 +37,15 @@ alias lta='exa -Tla'
 alias l='exa -l'
 alias tree='exa -Tl'
 
+# Bat as cat
+alias cat="bat"
+export BAT_PAGER="less -RF"
+
 # Progress monitor
 alias prog='progress -m'
+
+# Clear screen faster
+alias cl="clear"
 
 # Pacman
 alias pacman='pacman --color auto'
