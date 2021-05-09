@@ -29,5 +29,4 @@ set tabstop=4
 set mouse=a
 set scrolloff=8
 set clipboard=unnamedplus
-set noshowmode 
 syntax enable
