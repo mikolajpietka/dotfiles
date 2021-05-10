@@ -192,7 +192,7 @@ c.statusbar.widgets = ['keypress', 'url']
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'https://google.com'
+c.url.default_page = 'file:///home/mikolaj/homepage/index.html'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -217,7 +217,7 @@ c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'http
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://google.com'
+c.url.start_pages = 'file:///home/mikolaj/homepage/index.html'
 
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
