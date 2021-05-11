@@ -130,11 +130,6 @@ keys = [
         desc="Shrink window"
     ),
     Key(
-        [mod], "space",
-        lazy.screen.toggle_group(), 
-        desc="Last group"
-    ),
-    Key(
         [mod], "q", 
         lazy.window.kill(), 
         desc="Kill focused window"
@@ -153,17 +148,17 @@ keys = [
     ),
     # Media control
     Key(
-        ["control"], "Left",
+        [mod], "Left",
         lazy.spawn("playerctl previous"),
         desc="Previous media file"
     ),
     Key(
-        ["control"], "Right",
+        [mod], "Right",
         lazy.spawn("playerctl next"),
         desc="Previous media file"
     ),
     Key(
-        ["control"], "space",
+        [mod], "space",
         lazy.spawn("playerctl play-pause"),
         desc="Previous media file"
     ),
