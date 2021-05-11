@@ -278,7 +278,7 @@ screens = [
                 widget.Wlan(
                     interface="wlp9s0",
                     format="{essid} {percent:1.0%}",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nm-connection-editor")},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/rofi/scripts/nmgui.sh"))},
                     foreground="#9EC1CF"
                 ),
                 widget.Image(
