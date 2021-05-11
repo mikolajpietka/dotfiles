@@ -45,10 +45,10 @@ DMEDITOR="alacritty -e vim"
 
 SETWALL="feh --bg-fill --no-fehbg --randomize"
 
-CHOICE=$(printf '%s\n' ${OPEN[@]} | $DMENU -p "OPEN")
+CHOICE=$(printf '%s\n' "${OPEN[@]}" | $DMENU -p "OPEN")
 case $CHOICE in
 ${OPEN[0]})
-    CHOICE=$(printf '%s\n' ${CONFIGFILES[@]} | $DMENU -p "Configfiles")
+    CHOICE=$(printf '%s\n' "${CONFIGFILES[@]}" | $DMENU -p "Configfiles")
     case $CHOICE in
     ${CONFIGFILES[0]})
         $DMEDITOR $HOME/.config/qtile/config.py
@@ -77,7 +77,7 @@ ${OPEN[0]})
     esac
 ;;
 ${OPEN[1]})
-    CHOICE=$(printf '%s\n' ${WORKSPACES[@]} | $DMENU -p "Workspaces")
+    CHOICE=$(printf '%s\n' "${WORKSPACES[@]}" | $DMENU -p "Workspaces")
     case $CHOICE in
     ${WORKSPACES[0]})
         code ~/code/Dotfiles.code-workspace
@@ -91,7 +91,7 @@ ${OPEN[1]})
     esac
 ;;
 ${OPEN[2]})
-    CHOICE=$(printf '%s\n' ${WALLPAPERS[@]} | $DMENU -p "Wallpapers")
+    CHOICE=$(printf '%s\n' "${WALLPAPERS[@]}" | $DMENU -p "Wallpapers")
     case $CHOICE in
     ${WALLPAPERS[0]})
         $SETWALL ~/wallpapers/
