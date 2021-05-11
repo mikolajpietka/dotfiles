@@ -148,7 +148,24 @@ keys = [
     # Calculator
     Key(
         [mod], "k",
-        lazy.spawn('gnome-calculator')
+        lazy.spawn("galculator"),
+        desc="Open calculator"
+    ),
+    # Media control
+    Key(
+        ["control"], "Left",
+        lazy.spawn("playerctl previous"),
+        desc="Previous media file"
+    ),
+    Key(
+        ["control"], "Right",
+        lazy.spawn("playerctl next"),
+        desc="Previous media file"
+    ),
+    Key(
+        ["control"], "space",
+        lazy.spawn("playerctl play-pause"),
+        desc="Previous media file"
     ),
 ]
 
@@ -362,7 +379,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-    Match(wm_class='gnome-calculator'),
+    Match(wm_class='galculator'),
     ],
     border_focus='#8ecae6',
     border_normal='#023047',
