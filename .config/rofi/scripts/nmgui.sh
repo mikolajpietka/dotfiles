@@ -1,10 +1,20 @@
 #!/usr/bin/bash
 
+#################################################################
+## ___  ____ _         _       _  ______ _      _   _          ##
+## |  \/  (_) |       | |     (_) | ___ (_)    | | | |         ##
+## | .  . |_| | _____ | | __ _ _  | |_/ /_  ___| |_| | ____ _  ##
+## | |\/| | | |/ / _ \| |/ _` | | |  __/| |/ _ \ __| |/ / _` | ##
+## | |  | | |   < (_) | | (_| | | | |   | |  __/ |_|   < (_| | ##
+## \_|  |_/_|_|\_\___/|_|\__,_| | \_|   |_|\___|\__|_|\_\__,_| ##
+##                           _/ |                              ##
+##                          |__/                               ##
+#################################################################
 
+# Created by Mikolaj Pietka
 
 DMENU="rofi -dmenu -i"
 
-# opcje połączenia > włącz/wyłącz; lista znanych połączeń; połącz do danej sieci
 declare -a OPTIONS=(
     "Toggle WIFI"
     "List of known connections"
@@ -23,7 +33,6 @@ declare -a EDIOPT=(
     "Autoconnect"
 )
 
-# wyświetlenie i wybranie opcji
 CHOICE=$(printf "%s\n" "${OPTIONS[@]}" | $DMENU -p "What to do?")
 
 case $CHOICE in 
@@ -80,8 +89,12 @@ ${OPTIONS[2]})
     
     notify-send -u low "Scanning..."
     CHWIFI=$(nmcli -g SSID device wifi list | $DMENU -p "Choose wifi to connect")
-    PASS=$($DMENU -l 0 -password -p "Password for $CHWIFI")
-    nmcli device wifi connect "$CHWIFI" password "$PASS"
+    if [ "$CHWIFI" ]; then
+        PASS=$($DMENU -l 0 -password -p "Password for $CHWIFI")
+        if [ "$PASS" ]; then
+            nmcli device wifi connect "$CHWIFI" password "$PASS"
+        fi
+    fi
 
 ;;
 *)
