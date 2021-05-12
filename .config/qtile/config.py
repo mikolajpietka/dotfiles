@@ -391,10 +391,10 @@ def to_group(client):
     g[group_names[0]] = ["qutebrowser", "Navigator", "microsoft teams - preview"]
     g[group_names[1]] = ["Alacritty"]
     g[group_names[2]] = ["code"]
-    g[group_names[3]] = ["thunar"]
+    g[group_names[3]] = ["thunar", "transmission-gtk"]
     g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
     g[group_names[5]] = ["evince", "libreoffice", "soffice", "gedit"]
-    g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time", "transmission-gtk"]
+    g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time"]
 
     wm_class = client.window.get_wm_class()[0]
     for i in range(len(g)):
