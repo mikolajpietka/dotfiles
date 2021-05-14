@@ -213,7 +213,7 @@ c.url.default_page = 'file:///home/mikolaj/.homepage/index.html'
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'wiki': 'https://wikipedia.org/w/index.php?search={}', 'arch': 'https://wiki.archlinux.org/index.php?search={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'wiki': 'https://wikipedia.org/w/index.php?search={}', 'aw': 'https://wiki.archlinux.org/index.php?search={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
