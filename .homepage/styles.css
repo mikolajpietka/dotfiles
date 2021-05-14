@@ -1,0 +1,91 @@
+body {
+    background-image: url("bg/002.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: #FFFFFF;
+    font-family: "UbuntuMono Nerd Font";
+}
+
+.box {
+    height: 50%;
+    width: 50%;
+    min-height: 300px;
+    min-width: 500px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #252525D0;
+    border: 3px solid #252525;
+
+    padding: 20px;
+}
+
+.time {
+    width: 100%;
+    height: 15%;
+    font-size: 40px;
+    text-align: center;
+}
+
+.search {
+    height: 20%;
+    width: 100%;
+}
+
+.formbox {
+    padding: 10px;
+}
+
+.query {
+    border: none;
+    border-bottom: 3px solid #9Ec1CF;
+    background-color: transparent;
+    outline: none;
+    font-size: 25px;
+    color: inherit;
+    width: 100%;
+}
+
+.bookmarks {
+    height: 65%;
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    align-content: center;
+}
+
+.column {
+    float: left;
+    width: 33%;
+    height: 100%;
+}
+
+.section {
+    overflow-y: auto;
+}
+
+.row::after {
+    clear: both;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.bookmark {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+    margin: 5px;
+    font-size: 20px;
+}
