@@ -23,5 +23,7 @@ configuration {
 	kb-delete-entry: "Control+q";
 	terminal: "alacritty";
 	max-history-size: 20;
+	me-select-entry: "";
+	me-accept-entry: "MousePrimary";
 }
 @theme "themes/squared-nord"
