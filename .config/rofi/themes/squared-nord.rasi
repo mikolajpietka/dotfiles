@@ -10,6 +10,7 @@ configuration {
     display-run     : "";
     display-drun    : "";
     display-window  : "";
+    display-windowcd: "";
     display-combi   : "";
 
 }

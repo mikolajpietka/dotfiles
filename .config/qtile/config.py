@@ -253,6 +253,7 @@ screens = [
                 ),
                 widget.WindowCount(
                     text_format="  x{num}",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("rofi -show windowcd")}
                 ),
                 widget.WindowName(
                     format="{name}",
