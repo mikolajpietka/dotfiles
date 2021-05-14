@@ -250,7 +250,7 @@ screens = [
                     highlight_color=['#ffffff50'] 
                 ),
                 widget.Spacer(
-                    lenght=20
+                    length=20
                 ),
                 widget.WindowName(
                     font="UbuntuMono Bold",
