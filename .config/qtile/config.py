@@ -227,8 +227,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Ubuntu Bold',
-    fontsize=12,
+    font='UbuntuMono Nerd Font Bold',
+    fontsize=13,
     padding=5,
 )
 extension_defaults = widget_defaults.copy()
@@ -240,7 +240,6 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    font="UbuntuMono Nerd Font Bold",
                     fontsize=28,
                     padding=3,
                     highlight_method="line",
@@ -252,9 +251,10 @@ screens = [
                 widget.Spacer(
                     length=20
                 ),
+                widget.WindowCount(
+                    text_format="  x{num}",
+                ),
                 widget.WindowName(
-                    font="UbuntuMono Bold",
-                    fontsize=14,
                     format="{name}",
                     max_chars=80
                 ),
@@ -328,9 +328,8 @@ screens = [
                     margin_x=5,
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/rofi/scripts/powermenu.sh"))}
                 ),
-                widget.Sep(
-                    linewidth = 0,
-                    padding = 4
+                widget.Spacer(
+                    length=5
                 ),
             ],
             28, # Height
