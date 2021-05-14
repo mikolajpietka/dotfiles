@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 #################################################################
 ## ___  ____ _         _       _  ______ _      _   _          ##
@@ -18,7 +18,7 @@ declare -a managers=(
 )
 
 declare -a options=(
-    "Shutdown"
+    "Power off"
     "Suspend"
     "Logout"
     "Reboot"
@@ -27,10 +27,10 @@ declare -a options=(
 
 rofi="rofi -dmenu -i -l 5 -no-show-icons"
 
-choice=$(printf '%s\n' ${options[@]} | $rofi -p "Powermenu")
+choice=$(printf '%s\n' "${options[@]}" | $rofi -p "Powermenu")
 
 case $choice in
-    "Shutdown")
+    "Power off")
         shutdown now
     ;;
     "Suspend")
