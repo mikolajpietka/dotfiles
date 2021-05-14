@@ -26,9 +26,6 @@ import subprocess
 # Variables
 mod = "mod4" # Windows key
 terminal = "alacritty"
-rofi = "rofi -show "
-autostart = os.path.expanduser("~/.config/qtile/autostart.sh")
-powermenu = os.path.expanduser("~/.config/rofi/scripts/powermenu.sh")
 filemanager = "thunar"
 screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
@@ -74,22 +71,22 @@ keys = [
     # Rofi
     Key(
         [mod], "r", 
-        lazy.spawn(rofi + 'drun'), 
+        lazy.spawn("rofi -show drun"), 
         desc="Spawn an app using a prompt"
     ),
     Key(
         [mod], "Tab", 
-        lazy.spawn(rofi + 'window'), 
+        lazy.spawn("rofi -show window"), 
         desc="All windows in groups"
     ),
     Key(
         ["mod4", "mod1"], "r",
-        lazy.spawn(rofi + 'run'),
+        lazy.spawn("rofi -show run"),
         desc="Spawn a command using prompt"
     ),
     Key(
         [mod], "Escape",
-        lazy.spawn(powermenu),
+        lazy.spawn(os.path.expanduser("~/.config/rofi/scripts/powermenu.sh")),
         desc="Powermenu"
     ),
     Key(
@@ -253,7 +250,7 @@ screens = [
                     highlight_color=['#ffffff50'] 
                 ),
                 widget.Spacer(
-                    width=20
+                    lenght=20
                 ),
                 widget.WindowName(
                     font="UbuntuMono Bold",
@@ -289,7 +286,8 @@ screens = [
                 widget.Volume(
                     device=None,
                     step=5,
-                    foreground="#ff6663"
+                    foreground="#ff6663",
+                    mouse_callbacks={'Button2': lambda: qtile.cmd_spawn("pavucontrol")}
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-brightness.png",
@@ -328,7 +326,7 @@ screens = [
                     filename="~/.config/qtile/icons/button-power.png",
                     margin_y=6,
                     margin_x=5,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(powermenu)}
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/rofi/scripts/powermenu.sh"))}
                 ),
                 widget.Sep(
                     linewidth = 0,
@@ -375,10 +373,11 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
     Match(wm_class='galculator'),
+    Match(wm_class='pavucontrol'),
     ],
     border_focus='#8ecae6',
     border_normal='#023047',
-    border_width=0,
+    border_width=3,
     rounded=True
 )
 auto_fullscreen = True
@@ -405,7 +404,7 @@ def to_group(client):
 ##### AUTOSTART #####
 @hook.subscribe.startup_once
 def startup_once():
-    subprocess.call([autostart])
+    subprocess.call(os.path.expanduser("~/.config/qtile/autostart.sh"))
 
 # Weird line but... If it's here I will leave it
 wmname = "Qtile"
