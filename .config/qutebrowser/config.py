@@ -192,7 +192,7 @@ c.statusbar.widgets = ['keypress', 'url']
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'file:///home/mikolaj/homepage/index.html'
+c.url.default_page = 'file:///home/mikolaj/.homepage/index.html'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
