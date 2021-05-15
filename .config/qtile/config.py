@@ -26,7 +26,7 @@ import subprocess
 # Variables
 mod = "mod4" # Windows key
 terminal = "alacritty"
-filemanager = "thunar"
+filemanager = "pcmanfm"
 screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
@@ -391,7 +391,7 @@ def to_group(client):
     g[group_names[0]] = ["qutebrowser", "Navigator", "microsoft teams - preview"]
     g[group_names[1]] = ["Alacritty"]
     g[group_names[2]] = ["code"]
-    g[group_names[3]] = ["thunar", "transmission-gtk"]
+    g[group_names[3]] = ["thunar", "pcmanfm", "transmission-gtk"]
     g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
     g[group_names[5]] = ["evince", "libreoffice", "soffice", "gedit"]
     g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time"]
