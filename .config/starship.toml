@@ -17,6 +17,7 @@ $directory\
 $git_branch\
 $git_status\
 $cmd_duration\
+$jobs\
 $character\
 """
 
