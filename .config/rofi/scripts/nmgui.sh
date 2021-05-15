@@ -33,7 +33,17 @@ declare -a EDIOPT=(
     "Autoconnect"
 )
 
-CHOICE=$(printf "%s\n" "${OPTIONS[@]}" | $DMENU -p "What to do?")
+CONNECTION=$(nmcli -o | grep "connected to" | awk -F : '{print $2}' | sed 's/ connected to //')
+WIFISTATUS=$(nmcli -g WIFI general)
+if [ "$CONNECTION" ]; then
+    STATUS="Connected to: $CONNECTION"
+elif [ "$WIFISTATUS" == "disabled" ]; then
+    STATUS="WIFI disabled"
+else
+    STATUS="Disconnected"
+fi
+
+CHOICE=$(printf "%s\n" "${OPTIONS[@]}" | $DMENU -p "What to do?" -mesg "$STATUS")
 
 case $CHOICE in 
 ${OPTIONS[0]})

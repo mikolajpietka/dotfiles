@@ -275,7 +275,8 @@ screens = [
                 ),
                 widget.Wlan(
                     interface="wlp9s0",
-                    format="{essid} {percent:1.0%}",
+                    format="{percent:1.0%}",
+                    disconnected_message=" ",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/rofi/scripts/nmgui.sh"))},
                     foreground="#9EC1CF"
                 ),
