@@ -49,6 +49,7 @@ body {
     font-size: 25px;
     color: inherit;
     width: 100%;
+    font-family: inherit;
 }
 
 .bookmarks {
