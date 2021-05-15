@@ -60,12 +60,11 @@ body {
 .row {
     width: 100%;
     height: 100%;
-    align-content: center;
 }
 
 .column {
     float: left;
-    width: 33%;
+    width: 25%;
     height: 100%;
 }
 
@@ -79,7 +78,6 @@ body {
 
 .title {
     width: 100%;
-    text-align: center;
     font-size: 30px;
 }
 
