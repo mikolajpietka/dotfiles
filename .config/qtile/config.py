@@ -27,6 +27,7 @@ import subprocess
 mod = "mod4" # Windows key
 terminal = "alacritty"
 filemanager = "pcmanfm"
+webbrowser = "qutebrowser"
 screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
@@ -94,7 +95,7 @@ keys = [
         lazy.spawn(os.path.expanduser("~/.config/rofi/scripts/open.sh")),
         desc="Open script"
     ),
-    # Terminal and files
+    # Often used apps
     Key(
         [mod], "Return", 
         lazy.spawn(terminal), 
@@ -104,6 +105,16 @@ keys = [
         [mod], "e",
         lazy.spawn(filemanager),
         desc="Launch file manager"
+    ),
+    Key(
+        [mod], "c",
+        lazy.spawn("code"),
+        desc="Open Visual Studio Code"
+    ),
+    Key(
+        [mod], "w",
+        lazy.spawn(webbrowser),
+        desc="Open web browser"
     ),
     # Layouts & windows
     Key(
