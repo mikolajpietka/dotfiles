@@ -268,7 +268,7 @@ screens = [
                 ),
                 widget.WindowName(
                     format="{name}",
-                    max_chars=80
+                    max_chars=110
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-clock.png",
