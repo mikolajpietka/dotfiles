@@ -13,6 +13,7 @@
 
 add_newline = false
 format = """
+$username\
 $directory\
 $git_branch\
 $git_status\
