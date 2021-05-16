@@ -11,7 +11,7 @@
 #   qute://help/settings.html
 
 # Change the argument to True to still load settings configured via autoconfig.yml
-config.load_autoconfig(True)
+config.load_autoconfig(False)
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -213,7 +213,7 @@ c.url.default_page = 'file:///home/mikolaj/.homepage/index.html'
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'wiki': 'https://wikipedia.org/w/index.php?search={}', 'aw': 'https://wiki.archlinux.org/index.php?search={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}', 'aw': 'https://wiki.archlinux.org/index.php?search={}', 'ddg': 'https://duckduckgo.com/?q={}', 'wiki': 'https://wikipedia.org/w/index.php?search={}', 'git': 'https://github.com/search?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
