@@ -30,6 +30,7 @@ filemanager = "pcmanfm"
 webbrowser = "qutebrowser"
 screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
+locker = "slock"
 
 ##### KEY COMBINATIONS #####
 keys = [
@@ -169,6 +170,12 @@ keys = [
         [mod], "space",
         lazy.spawn("playerctl play-pause"),
         desc="Previous media file"
+    ),
+    # Session lock
+    Key(
+        [mod], "l",
+        lazy.spawn(locker),
+        desc="Lock session"
     ),
 ]
 
