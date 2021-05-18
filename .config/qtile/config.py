@@ -199,7 +199,7 @@ group_prop = [
     (group_names[3], {'label': "", 'layout': 'monadtall'}),
     (group_names[4], {'label': "", 'layout': 'max'}),
     (group_names[5], {'label': "", 'layout': 'max'}),
-    (group_names[6], {'label': "", 'layout': 'bsp'}),
+    (group_names[6], {'label': "", 'layout': 'monadtall'}),
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_prop]
@@ -238,10 +238,10 @@ layouts = [
     layout.Floating(
         **layout_theme,
     ),
-    layout.Bsp(
-        **layout_theme,
-        fair=False
-    )
+    # layout.Bsp(
+    #     **layout_theme,
+    #     fair=False
+    # )
 ]
 
 widget_defaults = dict(
@@ -258,10 +258,12 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    fontsize=28,
-                    padding=3,
+                    fontsize=26,
+                    padding=7,
                     highlight_method="line",
                     this_current_screen_border="#FFFFFF",
+                    borderwidth=0,
+                    margin=4,
                     disable_drag=True,
                     inactive="999999",
                     highlight_color=['#ffffff50'] 
@@ -304,7 +306,6 @@ screens = [
                     margin_x=3
                 ),
                 widget.Volume(
-                    device=None,
                     step=5,
                     foreground="#ff6663",
                     mouse_callbacks={'Button2': lambda: qtile.cmd_spawn("pavucontrol")}
@@ -393,10 +394,11 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='pinentry'),  # GPG key password entry
     Match(wm_class='galculator'),
     Match(wm_class='pavucontrol'),
+    Match(title='Confirm File Replacing'),
     ],
     border_focus='#8ecae6',
     border_normal='#023047',
-    border_width=3,
+    border_width=0,
     rounded=True
 )
 auto_fullscreen = True
