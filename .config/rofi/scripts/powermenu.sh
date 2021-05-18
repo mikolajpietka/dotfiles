@@ -20,12 +20,14 @@ declare -a managers=(
 declare -a options=(
     "Power off"
     "Suspend"
+    "Lock"
     "Logout"
     "Reboot"
-    "Quit"
 )
 
 rofi="rofi -dmenu -i -l 5 -no-show-icons"
+
+screenlock="slock"
 
 choice=$(printf '%s\n' "${options[@]}" | $rofi -p "Powermenu")
 
@@ -34,7 +36,10 @@ case $choice in
         shutdown now
     ;;
     "Suspend")
-        systemctl suspend
+        $screenlock & systemctl suspend
+    ;;
+    "Lock")
+        $screenlock
     ;;
     "Logout")
         for manager in ${managers[@]}
@@ -44,7 +49,7 @@ case $choice in
     "Reboot")
         reboot
     ;;
-    "Quit")
-        exit 0
+    *)
+    exit 0
     ;;
 esac
