@@ -158,6 +158,14 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+c.content.notifications.enabled = False
+
 # Which categories to show (in which order) in the :open completion.
 # Type: FlagList
 # Valid values:
