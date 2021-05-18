@@ -21,13 +21,15 @@ Dotfies for my desktop
 * Alacritty
 * Starship
 * Dunst
-* Powerline-shell
+* Key mapper (for mouse)
+* Neofetch
+* qutebrowser
 
 Additional configs
-* GTK3
+* GTK3 (and 2)
 * VIM
 * bashrc
 
 ## Dependencies
 
-> Need to add 
+`python-iwlib xcb-util-cursor thefuck bat exa`
