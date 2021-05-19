@@ -9,9 +9,7 @@
 ##                          |__/                               ##
 #################################################################
 
-# Created by Mikolaj Pietka
-
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
+# Config file for Alacritty
 
 # Import additional configuration files
 #

@@ -10,7 +10,8 @@
 ##                          |__/                               ##
 #################################################################
 
-# Created by Mikolaj Pietka
+# Config file for Rofi
+# Universal configs for all themes
 */
 configuration {
 	modi: "drun,run,window,";

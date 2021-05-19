@@ -9,7 +9,7 @@
 ##                          |__/                               ##
 #################################################################
 
-# Created by Mikolaj Pietka
+# Config file for Starship shell prompt
 
 add_newline = false
 format = """
