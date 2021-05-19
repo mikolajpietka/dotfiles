@@ -22,3 +22,4 @@ numlockx on &
 timedatectl set-timezone Europe/Warsaw &
 dunst &
 key-mapper-control --command autoload &
+~/.config/qtile/battery.sh &
