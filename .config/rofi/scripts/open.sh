@@ -11,100 +11,27 @@
 ##                          |__/                               ##
 #################################################################
 
-# Created by Mikolaj Pietka
+# Script to quickly open files and other options
 
-declare -a OPEN=(
-    "Configfiles"
-    "Workspaces"
-    "Wallpaper"
-)
+DMENU="rofi -dmenu -i -p "
+TERMINAL="alacritty"
+CONFIGFILE="/home/mikolaj/.config/rofi/scripts/open.conf"
 
-declare -a CONFIGFILES=(
-    "Qtile"
-    "Alacritty"
-    "Starship"
-    "Rofi"
-    "Dunst"
-    "Bashrc"
-    "Vim"
-)
+SECTION=$(grep "section:" "$CONFIGFILE" | awk -F : '{print $2}' | $DMENU)
+if [ "$SECTION" ]; then
+    OPTION=$(grep "$SECTION:" "$CONFIGFILE" | awk -F : '{print $2}' | $DMENU)
 
-declare -a WORKSPACES=(
-    "Dotfiles"
-    "Notes"
-)
+    if [ "$OPTION" ]; then
+        LINE=$(grep "$SECTION:$OPTION:" "$CONFIGFILE")
 
-declare -a WALLPAPERS=(
-    "Earth"
-    "Minimal"
-)
- 
-DMENU="rofi -dmenu -i -l 5 -no-custom -no-show-icons"
+        COMMAND=$(echo "$LINE" | awk -F : '{print $3}')
 
-DMEDITOR="alacritty -e vim"
+        CHTERM=$(echo "$LINE" | awk -F : '{print $4}')
+        if [ "$CHTERM" = "term" ]; then
+            $TERMINAL -e $COMMAND
+        else
+            $COMMAND
+        fi
 
-SETWALL="feh --bg-fill --no-fehbg --randomize"
-
-CHOICE=$(printf '%s\n' "${OPEN[@]}" | $DMENU -p "OPEN")
-case $CHOICE in
-${OPEN[0]})
-    CHOICE=$(printf '%s\n' "${CONFIGFILES[@]}" | $DMENU -p "Configfiles")
-    case $CHOICE in
-    ${CONFIGFILES[0]})
-        $DMEDITOR $HOME/.config/qtile/config.py
-    ;;
-    ${CONFIGFILES[1]})
-        $DMEDITOR $HOME/.config/alacritty/alacritty.yml
-    ;;
-    ${CONFIGFILES[2]})
-        $DMEDITOR $HOME/.config/starship.toml
-    ;;
-    ${CONFIGFILES[3]})
-        $DMEDITOR $HOME/.config/rofi/config.rasi
-    ;;
-    ${CONFIGFILES[4]})
-        $DMEDITOR $HOME/.config/dunst/dunstrc
-    ;;
-    ${CONFIGFILES[5]})
-        $DMEDITOR $HOME/.bashrc
-    ;;
-    ${CONFIGFILES[6]})
-        $DMEDITOR $HOME/.vimrc
-    ;;
-    *)
-        exit 0
-    ;;
-    esac
-;;
-${OPEN[1]})
-    CHOICE=$(printf '%s\n' "${WORKSPACES[@]}" | $DMENU -p "Workspaces")
-    case $CHOICE in
-    ${WORKSPACES[0]})
-        code ~/code/Dotfiles.code-workspace
-    ;;
-    ${WORKSPACES[1]})
-        code ~/code/notes.code-workspace
-    ;;
-    *)
-        exit 0
-    ;;
-    esac
-;;
-${OPEN[2]})
-    CHOICE=$(printf '%s\n' "${WALLPAPERS[@]}" | $DMENU -p "Wallpapers")
-    case $CHOICE in
-    ${WALLPAPERS[0]})
-        $SETWALL ~/wallpapers/
-    ;;
-    ${WALLPAPERS[1]})
-        $SETWALL ~/wallpapers/minimal
-    ;;
-    *)
-        exit 0
-    ;;
-    esac
-;;
-*)
-    exit 0
-;;
-esac
+    fi
+fi
