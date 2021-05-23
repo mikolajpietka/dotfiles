@@ -30,13 +30,13 @@ function main () {
             NOT5=0
     fi
 
-    if [ $PART -lt 5 ] && [ $STATE = "Discharging" ] && [ $NOT5 -eq 0 ]; then
+    if [ $PART -lt 6 ] && [ $STATE = "Discharging" ] && [ $NOT5 -eq 0 ]; then
             notify-send -u critical "BATTERY IS ALMOST DEAD!" "Battery has only $PART% left, connect power supply now! Hurry up!"
             NOT5=1
             NOT15=1
     fi
 
-    if [ $PART -lt 15 ] && [ $STATE = "Discharging" ] && [ $NOT15 -eq 0 ]; then
+    if [ $PART -lt 16 ] && [ $STATE = "Discharging" ] && [ $NOT15 -eq 0 ]; then
             notify-send -u critical "Low battery level!" "Battery level is $PART%, connect power supply"
             NOT15=1
     fi
