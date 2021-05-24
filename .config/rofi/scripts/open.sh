@@ -30,7 +30,7 @@ if [ "$SECTION" ]; then
         if [ "$CHTERM" = "term" ]; then
             $TERMINAL -e $COMMAND
         else
-            $COMMAND
+            bash -c "$COMMAND"
         fi
 
     fi
