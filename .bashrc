@@ -9,7 +9,7 @@
 ##                          |__/                               ##
 #################################################################
 
-# Created by Mikolaj Pietka
+# Bashrc configuration
 
 # PATH
 if [ -d "$HOME/.bin" ] ;
@@ -30,37 +30,38 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 bind "set completion-ignore-case on"
 
 # List files
-alias ls='exa -l'
-alias ll='exa -la'
-alias lt='exa -Tl'
-alias lta='exa -Tla'
-alias l='exa -l'
-alias tree='exa -Tl'
+alias ls="exa -l"
+alias ll="exa -la"
+alias lt="exa -Tl"
+alias lta="exa -Tla"
+alias l="exa -l"
+alias tree="exa -Tl"
 
 # Bat as cat
 alias cat="bat"
 export BAT_PAGER="less -RF"
 
 # Progress monitor
-alias prog='progress -m'
+alias prog="progress -m"
 
 # Clear screen faster
 alias cl="clear"
 
 # Pacman
-alias pacman='pacman --color auto'
-alias unlock='sudo rm /var/lib/pacman/db.lck'
+alias pacman="pacman --color auto"
+alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias update="sudo pacman -Syu"
 
 # Update group
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias update-initcpio='sudo mkinitcpio -P'
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias update-initcpio="sudo mkinitcpio -P"
 
 # Edit group
-alias edit-initcpio='sudo vim /etc/mkinitcpio.conf'
-alias edit-grub='sudo vim /etc/default/grub'
+alias edit-initcpio="sudo vim /etc/mkinitcpio.conf"
+alias edit-grub="sudo vim /etc/default/grub"
 
 # Errors from journalctl
-alias jctl='journalctl -p 3 -xb'
+alias jctl="journalctl -p 3 -xb"
 
 # Loaded at start
 neofetch
