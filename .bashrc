@@ -60,6 +60,11 @@ alias update-initcpio="sudo mkinitcpio -P"
 alias edit-initcpio="sudo vim /etc/mkinitcpio.conf"
 alias edit-grub="sudo vim /etc/default/grub"
 
+# Git
+alias commit="git commit"
+alias push="git push"
+alias add="git add"
+
 # Errors from journalctl
 alias jctl="journalctl -p 3 -xb"
 
