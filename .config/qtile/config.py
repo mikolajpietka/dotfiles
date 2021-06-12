@@ -25,7 +25,7 @@ import subprocess
 mod = "mod4" # Windows key
 terminal = "alacritty"
 filemanager = "pcmanfm"
-webbrowser = "qutebrowser"
+webbrowser = "firefox"
 screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 locker = "slock"
