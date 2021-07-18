@@ -24,7 +24,7 @@ import subprocess
 # Variables
 mod = "mod4" # Windows key
 terminal = "alacritty"
-filemanager = "pcmanfm"
+filemanager = "thunar"
 webbrowser = "firefox"
 screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
