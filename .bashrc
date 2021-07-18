@@ -21,7 +21,11 @@ if [ -d "$HOME/.local/bin" ] ;
 fi
 
 # Set editor to vim 
-export EDITOR="vim"
+export EDITOR="nvim"
+
+# Alias for nvim
+alias vim="nvim"
+alias nv="nvim"
 
 # Set manpager to bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
