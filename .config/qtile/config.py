@@ -264,18 +264,33 @@ screens = [
                     margin=4,
                     disable_drag=True,
                     inactive="999999",
-                    highlight_color=['#ffffff50'] 
+                    highlight_color=['#505050'] 
                 ),
                 widget.Spacer(
                     length=20
                 ),
-                widget.WindowCount(
-                    text_format="  x{num}",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("rofi -show windowcd")}
-                ),
-                widget.WindowName(
-                    format="{name}",
-                    max_chars=110
+                # widget.WindowCount(
+                #     text_format="  x{num}",
+                #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("rofi -show windowcd")}
+                # ),
+                # widget.WindowName(
+                #     format="{name}",
+                #     max_chars=110
+                # ),
+                widget.TaskList(
+                    max_title_width=200,
+                    fontsize=10,
+                    highlight_method="block",
+                    border="#505050",
+                    icon_size=0,
+                    title_width_method="uniform",
+                    txt_floating="🗗 ",
+                    txt_minimized="🗕 ",
+                    txt_maximized="🗖 ",
+                    rounded=False,
+                    margin=0,
+                    margin_x=3,
+                    padding=8,
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-clock.png",
