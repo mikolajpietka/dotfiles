@@ -253,7 +253,8 @@ extension_defaults = widget_defaults.copy()
 ##### BAR/PANEL ######
 screens = [
     Screen(
-        top=bar.Bar(
+        # top=bar.Bar(
+        bottom=bar.Bar(
             [
                 widget.GroupBox(
                     fontsize=26,
@@ -269,14 +270,6 @@ screens = [
                 widget.Spacer(
                     length=20
                 ),
-                # widget.WindowCount(
-                #     text_format="  x{num}",
-                #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("rofi -show windowcd")}
-                # ),
-                # widget.WindowName(
-                #     format="{name}",
-                #     max_chars=110
-                # ),
                 widget.TaskList(
                     max_title_width=200,
                     fontsize=10,
