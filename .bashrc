@@ -25,7 +25,6 @@ export EDITOR="nvim"
 
 # Alias for nvim
 alias vim="nvim"
-alias nv="nvim"
 
 # Set manpager to bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -49,20 +48,21 @@ export BAT_PAGER="less -RF"
 alias prog="progress -m"
 
 # Clear screen faster
-alias cl="clear"
+alias cl="clear && neofetch"
 
 # Pacman
 alias pacman="pacman --color auto"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
-alias update="sudo pacman -Syu"
+alias update="sudo pacman -Syu && paru -Sua"
+alias cleanup="sudo pacman -Rns $(pacman -Qdtq)"
 
 # Update group
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias update-initcpio="sudo mkinitcpio -P"
 
 # Edit group
-alias edit-initcpio="sudo vim /etc/mkinitcpio.conf"
-alias edit-grub="sudo vim /etc/default/grub"
+alias edit-initcpio="sudo $EDITOR /etc/mkinitcpio.conf"
+alias edit-grub="sudo $EDITOR /etc/default/grub"
 
 # Git
 alias commit="git commit"
