@@ -135,6 +135,11 @@ keys = [
         lazy.restart(), 
         desc="Restart Qtile"
     ),
+    Key(
+        ["control", mod], "Escape",
+        lazy.spawn("shutdown now"),
+        desc="Shutdown machine"
+    ),
     # Calculator
     Key(
         [mod], "k",
