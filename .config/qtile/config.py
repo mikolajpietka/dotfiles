@@ -24,10 +24,8 @@ import subprocess
 # Variables
 mod = "mod4" # Windows key
 terminal = "alacritty"
-filemanager = "thunar"
+filemanager = "pcmanfm"
 webbrowser = "firefox"
-screenshot = "scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
-screenshot_int = "scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"
 locker = "slock"
 
 ##### KEY COMBINATIONS #####
@@ -60,12 +58,12 @@ keys = [
     ),
     Key(
         [], "Print",
-        lazy.spawn(screenshot),
+        lazy.spawn("scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"),
         desc="Take screenshot"
     ),
     Key(
         ["control"], "Print",
-        lazy.spawn(screenshot_int),
+        lazy.spawn("scrot -sf '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"),
         desc="Take screenshot of chosen space"
     ),
     # Rofi
@@ -73,26 +71,6 @@ keys = [
         [mod], "r", 
         lazy.spawn("rofi -show drun"), 
         desc="Spawn an app using a prompt"
-    ),
-    Key(
-        [mod], "Tab", 
-        lazy.spawn("rofi -show window"), 
-        desc="All windows in groups"
-    ),
-    Key(
-        ["mod4", "mod1"], "r",
-        lazy.spawn("rofi -show run"),
-        desc="Spawn a command using prompt"
-    ),
-    Key(
-        [mod], "Escape",
-        lazy.spawn(os.path.expanduser("~/.config/rofi/scripts/powermenu.sh")),
-        desc="Powermenu"
-    ),
-    Key(
-        [mod], "o",
-        lazy.spawn(os.path.expanduser("~/.config/rofi/scripts/open.sh")),
-        desc="Open script"
     ),
     # Often used apps
     Key(
@@ -141,6 +119,16 @@ keys = [
         lazy.window.kill(), 
         desc="Kill focused window"
     ),
+    Key(
+        [mod], "m",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen mode"
+    ),
+    Key(
+        [mod], "Tab",
+        lazy.next_layout(),
+        desc="Switch to another layout"
+    ),
     # Qtile
     Key(
         [mod, "control"], "r", 
@@ -175,6 +163,24 @@ keys = [
         lazy.spawn(locker),
         desc="Lock session"
     ),
+    # Htop
+    Key(
+        ["control", "shift"], "Escape",
+        lazy.spawn(terminal + " -e htop"),
+        desc="Open htop"
+    ),
+    # Prompt just in case
+    Key(
+        ["mod1"], "r",
+        lazy.spawncmd(),
+        desc="Open prompt"
+    ),
+    # Jgmenu
+    Key(
+        [mod], "j",
+        lazy.spawn("jgmenu_run"),
+        desc="Open Jgmenu"
+    ),
 ]
 
 ##### GROUPS #####
@@ -191,13 +197,13 @@ group_names = [
 ]
 
 group_prop = [
-    (group_names[0], {'label': "爵", 'layout': 'max'}),
-    (group_names[1], {'label': "", 'layout': 'monadtall'}),
-    (group_names[2], {'label': "", 'layout': 'max'}),
-    (group_names[3], {'label': "", 'layout': 'monadtall'}),
-    (group_names[4], {'label': "", 'layout': 'max'}),
-    (group_names[5], {'label': "", 'layout': 'max'}),
-    (group_names[6], {'label': "", 'layout': 'monadtall'}),
+    (group_names[0], {'label': "", 'layout': 'monadtall'}),
+    (group_names[1], {'label': "", 'layout': 'monadtall'}),
+    (group_names[2], {'label': "", 'layout': 'monadtall'}),
+    (group_names[3], {'label': "", 'layout': 'monadtall'}),
+    (group_names[4], {'label': "", 'layout': 'monadtall'}),
+    (group_names[5], {'label': "", 'layout': 'monadtall'}),
+    (group_names[6], {'label': "", 'layout': 'monadtall'}),
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_prop]
@@ -226,20 +232,16 @@ layout_theme = {
 }
 
 layouts = [
-    layout.Max(
-        **layout_theme,
-    ),
     layout.MonadTall(
         **layout_theme,
         ratio=0.5
     ),
-    layout.Floating(
+    layout.Max(
         **layout_theme,
     ),
-    # layout.Bsp(
+    # layout.Floating(
     #     **layout_theme,
-    #     fair=False
-    # )
+    # ),
 ]
 
 widget_defaults = dict(
@@ -253,9 +255,17 @@ extension_defaults = widget_defaults.copy()
 ##### BAR/PANEL ######
 screens = [
     Screen(
-        # top=bar.Bar(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
+                widget.Spacer(
+                    length=5
+                ),
+                widget.Image(
+                    filename="~/.config/qtile/icons/m-icon.png",
+                    margin_y=4,
+                    margin_x=5,
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("jgmenu_run")}
+                ),
                 widget.GroupBox(
                     fontsize=26,
                     padding=7,
@@ -270,16 +280,17 @@ screens = [
                 widget.Spacer(
                     length=20
                 ),
+                widget.Prompt(),
                 widget.TaskList(
                     max_title_width=200,
-                    fontsize=10,
+                    fontsize=11,
                     highlight_method="block",
                     border="#505050",
                     icon_size=0,
                     title_width_method="uniform",
-                    txt_floating="🗗 ",
-                    txt_minimized="🗕 ",
-                    txt_maximized="🗖 ",
+                    txt_floating=" ",
+                    txt_minimized=" ",
+                    txt_maximized=" ",
                     rounded=False,
                     margin=0,
                     margin_x=3,
@@ -303,8 +314,8 @@ screens = [
                     interface="wlp9s0",
                     format="{percent:1.0%}",
                     disconnected_message=" ",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/rofi/scripts/nmgui.sh"))},
-                    foreground="#9EC1CF"
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/scripts/nmgui.sh"))},
+                    foreground="#9EC1CF",
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-sound.png",
@@ -314,7 +325,7 @@ screens = [
                 widget.Volume(
                     step=5,
                     foreground="#ff6663",
-                    mouse_callbacks={'Button2': lambda: qtile.cmd_spawn("pavucontrol")}
+                    mouse_callbacks={'Button2': lambda: qtile.cmd_spawn("pavucontrol")},
                 ),
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-brightness.png",
@@ -349,10 +360,10 @@ screens = [
                     padding=0
                 ),
                 widget.Image(
-                    filename="~/.config/qtile/icons/button-power.png",
-                    margin_y=6,
-                    margin_x=5,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/rofi/scripts/powermenu.sh"))}
+                    filename="~/.config/qtile/icons/icon-close.png",
+                    margin_y=8,
+                    margin_x=3,
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_simulate_keypress([mod],"q")}
                 ),
                 widget.Spacer(
                     length=5
@@ -404,33 +415,31 @@ floating_layout = layout.Floating(float_rules=[
     border_focus='#8ecae6',
     border_normal='#023047',
     border_width=0,
-    rounded=True
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
 ##### APPS TO GROUP #####
-@hook.subscribe.client_new
-def to_group(client):
-    g={}
-    g[group_names[0]] = ["qutebrowser", "Navigator", "microsoft teams - preview"]
-    g[group_names[1]] = ["Alacritty"]
-    g[group_names[2]] = ["code"]
-    g[group_names[3]] = ["thunar", "pcmanfm", "transmission-gtk"]
-    g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
-    g[group_names[5]] = ["evince", "libreoffice", "soffice", "gedit"]
-    g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time"]
+# @hook.subscribe.client_new
+# def to_group(client):
+#     g={}
+#     g[group_names[0]] = ["qutebrowser", "Navigator", "microsoft teams - preview"]
+#     g[group_names[1]] = ["Alacritty"]
+#     g[group_names[2]] = ["code"]
+#     g[group_names[3]] = ["thunar", "pcmanfm", "transmission-gtk"]
+#     g[group_names[4]] = ["gimp-2.10", "gimp", "feh", "eog"]
+#     g[group_names[5]] = ["evince", "libreoffice", "soffice", "gedit"]
+#     g[group_names[6]] = ["spotify", "vlc", "Popcorn-Time"]
 
-    wm_class = client.window.get_wm_class()[0]
-    for i in range(len(g)):
-        if wm_class in list(g.values())[i]:
-            group = list(g.keys())[i]
-            client.togroup(group, switch_group=True)
+#     wm_class = client.window.get_wm_class()[0]
+#     for i in range(len(g)):
+#         if wm_class in list(g.values())[i]:
+#             group = list(g.keys())[i]
+#             client.togroup(group, switch_group=True)
 
 ##### AUTOSTART #####
 @hook.subscribe.startup_once
 def startup_once():
-    subprocess.call(os.path.expanduser("~/.config/qtile/autostart.sh"))
+    subprocess.call(os.path.expanduser("~/.config/scripts/autostart.sh"))
 
-# Weird line but... If it's here I will leave it
 wmname = "Qtile"

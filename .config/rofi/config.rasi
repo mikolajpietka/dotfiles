@@ -14,8 +14,7 @@
 # Universal configs for all themes
 */
 configuration {
-	modi: "drun,run,window,";
-	lines: 5;
+	modi: "drun,run,window";
 	show-icons: false;
 	drun-match-fields: "all";
 	drun-display-format: "{name}"; 
@@ -24,7 +23,12 @@ configuration {
 	kb-delete-entry: "Control+q";
 	terminal: "alacritty";
 	max-history-size: 20;
-	me-select-entry: "";
-	me-accept-entry: "MousePrimary";
+    font            : "UbuntuMono Nerd Font 15";
+    display-ssh     : "";
+    display-run     : "";
+    display-drun    : "";
+    display-window  : "";
+    display-windowcd: "";
+    display-combi   : "";
 }
 @theme "themes/squared-nord"
