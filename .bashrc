@@ -54,6 +54,7 @@ alias cl="clear && neofetch"
 alias pacman="pacman --color auto"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update="sudo pacman -Syu && paru -Sua"
+alias upshut="yes | sudo pacman -Syu && yes | paru -Sua && shutdown now"
 alias cleanup="sudo pacman -Rns $(pacman -Qdtq)"
 
 # Update group
@@ -63,11 +64,6 @@ alias update-initcpio="sudo mkinitcpio -P"
 # Edit group
 alias edit-initcpio="sudo $EDITOR /etc/mkinitcpio.conf"
 alias edit-grub="sudo $EDITOR /etc/default/grub"
-
-# Git
-alias commit="git commit"
-alias push="git push"
-alias add="git add"
 
 # Errors from journalctl
 alias jctl="journalctl -p 3 -xb"
