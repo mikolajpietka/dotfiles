@@ -53,7 +53,7 @@ alias cl="clear && neofetch"
 # Pacman
 alias pacman="pacman --color auto"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
-alias update="sudo pacman -Syu && paru -Sua"
+alias update="sudo pacman -Syu --noconfirm && paru -Sua --noconfirm"
 alias upshut="yes | sudo pacman -Syu && yes | paru -Sua && shutdown now"
 alias cleanup="sudo pacman -Rns $(pacman -Qdtq)"
 
