@@ -207,9 +207,11 @@ group_prop = [
     (group_names[2], {'label': "", 'layout': 'monadtall'}),
     (group_names[3], {'label': "", 'layout': 'monadtall'}),
     (group_names[4], {'label': "", 'layout': 'monadtall'}),
-    (group_names[5], {'label': "", 'layout': 'monadtall'}),
-    (group_names[6], {'label': "", 'layout': 'monadtall'}),
+  # (group_names[5], {'label': "", 'layout': 'monadtall'}),
+  # (group_names[6], {'label': "", 'layout': 'monadtall'}),
 ]
+
+# Different symbol: 
 
 groups = [Group(name, **kwargs) for name, kwargs in group_prop]
 
