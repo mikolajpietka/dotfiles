@@ -68,6 +68,8 @@ alias edit-grub="sudo $EDITOR /etc/default/grub"
 # Errors from journalctl
 alias jctl="journalctl -p 3 -xb"
 
+# Power aliases
+alias sdn="shutdown now"
 # Loaded at start
 neofetch
 
