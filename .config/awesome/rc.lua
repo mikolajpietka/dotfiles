@@ -62,9 +62,10 @@ exitmenu = {
 mymainmenu = awful.menu({items = {
     {"Awesome", myawesomemenu, beautiful.awesome_icon},
     {"Terminal", terminal},
-    {"Jgmenu", "jgmenu_run"},
     {"Firefox", "firefox"},
-    {"Rofi", "rofi -show drun"},
+    {"File Manager", "pcmanfm"},
+    {"Code", "code"},
+    {"Spotify", "spotify"},
     {"Exit", exitmenu},
 }})
 
