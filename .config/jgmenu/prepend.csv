@@ -1,0 +1,55 @@
+# CSV for Jgmenu
+
+^sep(Mikołaj Piętka)
+Apps,^checkout(apps),applications-all
+^sep()
+Terminal,alacritty,Terminal
+Firefox,firefox,firefox
+File Manager,pcmanfm,folder-blue
+Code,code,code
+Spotify,spotify,spotify
+^sep()
+Config,^checkout(config),configuration
+Exit,^checkout(exitmenu),exit
+
+^tag(config)
+Apps,^checkout(apps-conf),applications-all
+Autostart,^term('$EDITOR ~/.config/scripts/autostart.sh'),configuration
+Modes,^checkout(modes),weather-clear
+Wallpaper,feh --bg-fill --no-fehbg --randomize $HOME/wallpapers/,daily-wallpaper
+WM,^checkout(wm),display
+
+^tag(modes)
+Day,amixer -q set Master 75% && xbacklight = 100,weather-clear
+Night,amixer -q set Master 10% && xbacklight = 25,weather-clear-night
+
+^tag(wm)
+Awesome,^term('$EDITOR ~/.config/awesome/rc.lua'),display
+Qtile,^term('$EDITOR ~/.config/qtile/config.py'),display
+
+^tag(apps-conf)
+Alacritty,^term('$EDITOR ~/.config/alacritty/alacritty.yml'),Alacritty
+Conky,^checkout(conky),conky
+Dunst,^term('$EDITOR ~/.config/dunst/dunstrc'),cs-notifications
+Homepage,^term('$EDITOR ~/.homepage/index.html')
+Jgmenu,^checkout(jgmenu)
+Neofetch,^term('$EDITOR ~/.config/neofetch/config.conf')
+NeoVim,^term('$EDITOR ~/.config/nvim/init.vim')
+Rofi,^term('$EDITOR ~/.config/rofi/config.rasi')
+
+^tag(conky)
+Config,^term('$EDITOR ~/.config/conky/conky.conf')
+To-Do List,^term('$EDITOR ~/.todolist')
+
+^tag(jgmenu)
+Config,^term('$EDITOR ~/.config/jgmenu/jgmenurc')
+Menu,^term('$EDITOR ~/.config/jgmenu/prepend.csv')
+
+^tag(exitmenu)
+Shutdown,shutdown now
+Logout,killall $(wmctrl -m | grep "Name" | awk -F ': ' '{print tolower($2)}')
+Reboot,reboot
+Suspend,systemctl suspend
+Lock,slock
+
+^tag(apps)

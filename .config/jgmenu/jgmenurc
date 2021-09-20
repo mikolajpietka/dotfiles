@@ -1,0 +1,87 @@
+#################################################################
+## ___  ____ _         _       _  ______ _      _   _          ##
+## |  \/  (_) |       | |     (_) | ___ (_)    | | | |         ##
+## | .  . |_| | _____ | | __ _ _  | |_/ /_  ___| |_| | ____ _  ##
+## | |\/| | | |/ / _ \| |/ _` | | |  __/| |/ _ \ __| |/ / _` | ##
+## | |  | | |   < (_) | | (_| | | | |   | |  __/ |_|   < (_| | ##
+## \_|  |_/_|_|\_\___/|_|\__,_| | \_|   |_|\___|\__|_|\_\__,_| ##
+##                           _/ |                              ##
+##                          |__/                               ##
+#################################################################
+
+# Config file for Jgmenu
+
+# verbosity = 0
+# stay_alive = 1
+# persistent = 0
+# hide_on_startup = 0
+csv_cmd = pmenu
+# tint2_look = 0
+position_mode = fixed
+# edge_snap_x = 30
+terminal_exec = alacritty
+terminal_args = -e 
+# monitor = 0
+# hover_delay = 100
+# hide_back_items = 1
+# columns = 1
+# tabs = 120
+menu_margin_x = 2
+menu_margin_y = 30
+menu_width = 200
+# menu_height_min = 0
+menu_height_max = 300
+# menu_height_mode = static
+menu_padding_top = 0
+menu_padding_right = 0
+menu_padding_bottom = 0
+menu_padding_left = 0
+menu_radius = 3
+# menu_border = 0
+menu_halign = left
+menu_valign = top
+# menu_gradient_pos = none
+# sub_spacing = 1
+# sub_padding_top = auto
+# sub_padding_right = auto
+# sub_padding_bottom = auto
+# sub_padding_left = auto
+# sub_hover_action = 1
+item_margin_x = 0
+item_margin_y = 0
+item_height = 25
+item_padding_x = 5
+item_radius = 0
+# item_border = 0
+# item_halign = left
+# sep_height = 5
+# sep_halign = left
+# sep_markup = 
+font = Ubuntu Bold 10
+# font_fallback = xtg
+icon_size = 15
+# icon_text_spacing = 10
+# icon_norm_alpha = 100
+# icon_sel_alpha = 100
+icon_theme = Papirus
+# icon_theme_fallback = xtg
+# arrow_string = ▸
+# arrow_width = 15
+color_menu_bg = #000000 90 
+# color_menu_bg_to = #000000 100
+# color_menu_border = #eeeeee 8
+# color_norm_bg = #000000 00
+# color_norm_fg = #eeeeee 100
+color_sel_bg = #9EC1CF 90
+color_sel_fg = #FFFFFF 100
+# color_sel_border = #eeeeee 8
+# color_sep_fg = #ffffff 20
+# color_scroll_ind = #eeeeee 40
+color_title_fg = #003C73 90
+# color_title_bg = #000000 0
+# color_title_border = #000000 0
+# csv_name_format = %n (%g)
+# csv_single_window = 0
+csv_no_dirs = 1
+# csv_i18n = 
+# csv_no_duplicates = 0
