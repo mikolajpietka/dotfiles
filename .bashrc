@@ -70,6 +70,7 @@ alias jctl="journalctl -p 3 -xb"
 
 # Power aliases
 alias sdn="shutdown now"
+
 # Loaded at start
 neofetch
 
