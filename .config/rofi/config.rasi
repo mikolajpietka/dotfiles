@@ -23,12 +23,6 @@ configuration {
 	kb-delete-entry: "Control+q";
 	terminal: "alacritty";
 	max-history-size: 20;
-    font            : "UbuntuMono Nerd Font 15";
-    display-ssh     : "";
-    display-run     : "";
-    display-drun    : "";
-    display-window  : "";
-    display-windowcd: "";
-    display-combi   : "";
+    font: "UbuntuMono 15";
 }
 @theme "themes/squared-nord"

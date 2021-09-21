@@ -1,6 +1,6 @@
 * {
-    bg-color            : #2e3440;
-    bg-light-color      : #3b4252;
+    bg-color            : #2e2e2e;
+    bg-light-color      : #3b3b3b;
     fg-color            : #d8dee9;
     accent-color        : #88c0d0;
     urgent-color        : #ebcb8b;
