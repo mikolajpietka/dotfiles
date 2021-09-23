@@ -192,13 +192,13 @@ keys = [
 
 # Name of groups
 group_names = [
-    "Web    ", #0
-    "System ", #1
-    "Code   ", #2
-    "File   ", #3
-    "Image  ", #4
-    "Docs   ", #5
-    "Fun    ", #6
+    "I      ", #0
+    "II     ", #1
+    "III    ", #2
+    "IV     ", #3
+    "V      ", #4
+    "VI     ", #5
+    "VII    ", #6
 ]
 
 group_prop = [
