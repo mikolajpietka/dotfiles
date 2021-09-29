@@ -93,6 +93,11 @@ keys = [
         lazy.spawn(webbrowser),
         desc="Open web browser"
     ),
+    Key(
+        [mod, "control"], "w",
+        lazy.spawn("qutebrowser"),
+        desc="Open qutebrowser"
+    ),
     # Layouts & windows
     Key(
         [mod], "f", 
