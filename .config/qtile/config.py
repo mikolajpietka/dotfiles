@@ -98,6 +98,11 @@ keys = [
         lazy.spawn("qutebrowser"),
         desc="Open qutebrowser"
     ),
+    Key(
+        [mod], "t",
+        lazy.spawn(terminal),
+        desc="Alternative shortcut to open terminal"
+    ),
     # Layouts & windows
     Key(
         [mod], "f", 
