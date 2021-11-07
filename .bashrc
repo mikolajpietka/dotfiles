@@ -56,6 +56,7 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update="sudo pacman -Syu --noconfirm && paru -Sua --noconfirm"
 alias upshut="yes | sudo pacman -Syu && yes | paru -Sua && shutdown now"
 alias cleanup="sudo pacman -Rns $(pacman -Qdtq)"
+alias reflect="sudo reflector --sort rate -l 5 --save /etc/pacman.d/mirrorlist"
 
 # Update group
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
