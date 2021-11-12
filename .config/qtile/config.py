@@ -262,7 +262,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='UbuntuMono Bold',
+    font="UbuntuMono NF",
     fontsize=13,
     padding=5,
 )
@@ -300,7 +300,7 @@ screens = [
                 widget.Prompt(),
                 widget.TaskList(
                     max_title_width=200,
-                    fontsize=10,
+                    fontsize=12,
                     highlight_method="block",
                     border="#505050",
                     icon_size=0,
