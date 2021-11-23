@@ -178,13 +178,7 @@ keys = [
         lazy.spawn(locker),
         desc="Lock session"
     ),
-    # Htop
-    Key(
-        ["control", "shift"], "Escape",
-        lazy.spawn(terminal + " -e htop"),
-        desc="Open htop"
-    ),
-    # Prompt just in case
+   # Prompt just in case
     Key(
         ["mod1"], "r",
         lazy.spawncmd(),
@@ -195,6 +189,22 @@ keys = [
         [mod], "j",
         lazy.spawn("jgmenu_run"),
         desc="Open Jgmenu"
+    ),
+    # Notifications shortcuts (dunst)
+    Key(
+        ["control"], "space",
+        lazy.spawn("dunstctl close"),
+        desc="Close last notification"
+    ),
+    Key(
+        ["control", "shift"], "space",
+        lazy.spawn("dunstctl close-all"),
+        desc="Close all notifications"
+    ),
+    Key(
+        ["control"], "grave",
+        lazy.spawn("dunstctl history-pop"),
+        desc="Show last notification"
     ),
 ]
 
