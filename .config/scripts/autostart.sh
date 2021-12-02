@@ -31,4 +31,4 @@ run $HOME/.config/scripts/battery.sh
 run numlockx on 
 run conky 
 xset s off
-xset -dpms
+# xset -dpms
