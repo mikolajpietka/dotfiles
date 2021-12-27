@@ -335,7 +335,8 @@ screens = [
                 widget.Image(
                     filename="~/.config/qtile/icons/icon-wifi.png",
                     margin_y=6,
-                    margin_x=3
+                    margin_x=3,
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(os.path.expanduser("~/.config/scripts/nmgui.sh"))},
                 ),
                 widget.Wlan(
                     interface="wlp9s0",
