@@ -57,6 +57,11 @@ keys = [
         desc="Increase brightness"
     ),
     Key(
+        [], "XF86Calculator",
+        lazy.spawn("galculator"),
+        desc="Open calculator"
+    ),
+    Key(
         [], "Print",
         lazy.spawn("scrot '%Y%m%d_%H%M%S_screenshot.png' -e 'mv $f ~/Pictures/Screenshots/'"),
         desc="Take screenshot"
@@ -165,12 +170,27 @@ keys = [
     Key(
         [mod], "Right",
         lazy.spawn("playerctl next"),
-        desc="Previous media file"
+        desc="Next media file"
     ),
     Key(
         [mod], "space",
         lazy.spawn("playerctl play-pause"),
+        desc="Play/pause media file"
+    ),
+    Key(
+        [], "XF86AudioPrev",
+        lazy.spawn("playerctl previous"),
         desc="Previous media file"
+    ),
+    Key(
+        [], "XF86AudioNext",
+        lazy.spawn("playerctl next"),
+        desc="Next media file"
+    ),
+    Key(
+        [], "XF86AudioPlay",
+        lazy.spawn("playerctl play-pause"),
+        desc="Play/pause media file"
     ),
     # Session lock
     Key(
